@@ -6,7 +6,6 @@ language_tabs:
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
   - profile-object
@@ -17,68 +16,76 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with It[Slate](https://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Welcome to the Crowdskout API. You can use the API to read and write profile data in Crowdskout. This documentation covers
+version 1 of the API and after authenticating, all endpoints reside under `https://api.crowdskout.com/v1`.
 
 # Authentication
 
-The Crowdskout API uses the OAuth 2 Authorization Code flow for authentication.
+The Crowdskout API uses the [OAuth 2.0](https://tools.ietf.org/html/rfc6749) Authorization Code flow for authentication.
 
 ## Obtaining a `client_id` and `client_secret`
 
-Contact your Crowdskout account manager to obtain a `client_id` and `client_secret`, and to provide
+Contact your Crowdskout community manager to obtain a `client_id` and `client_secret`, and to provide
 them with a `redirect_uri` for your application.
 
 ## Obtaining an Authorization Code
 
-Direct the user to the following url for login and authorization:
+Direct the user to the following URL for a login form:
 
-`https://api.crowdskout.com/oauth/authorize?client_id=abc&redirect_uri=url&response_type=code&state=abc`
+`https://api.crowdskout.com/oauth/authorize?client_id={client_id}&redirect_uri={redirect_url}&response_type=code&state={state}`
 
-Parameter | Value
----- | ----
-client_id | The `client_id` provided by your Crowdskout account manager
-redirect_uri | Where to redirect the user after authorization; must be provided to account manager
-response_type | Must be "code"
-state | _Optional;_ Unique identifier to protect against CSRF
+Parameter|Required?|Description
+---------|---------|-----------
+client_id|Yes|The `client_id` provided by your Crowdskout account manager
+redirect_uri|Yes|Where to redirect the user after authorization; must be provided to account manager
+response_type|Yes|Must always be `code`
+state|No|Unique identifier to protect against CSRF
 
-After the user logs in an authenticates with a client, they will be redirected to `redirect_uri` with the following parameters:
+After the user logs in an authenticates with a client, they will be redirected to `redirect_uri` with the following
+query parameters:
 
-Parameter | Value
----- | ----
-code | Authorization code
-state | The `state` passed as a parameter to the authorization url
+Parameter|Description
+---------|-----
+code|Authorization code
+state|The `state` passed as a parameter to the authorization URL, check this against what you provided to protect against CSRF
 
 ## Obtaining an Access Token
 
-Use your authorization code to obtain an access token, by making a POST request to the following
-url:
+>Request
 
-`https://api.crowdskout.com/oauth/access_token`
+```
+client_id=abcd1234&client_secret=abcd1234&code=abcd1234&redirect_uri=http%3A%2F%2Fcrowdskout.com&grant_type=authorization_code
+```
 
-Include the following in the body of your request, as **Content-Type: application/x-www-form-urlencoded**:
+>Response
 
-Parameter | Value
---------- | -----
-client_id | The `client_id` provided by your Crowdskout account manager
-client_secret | The `client_secret` provided by your Crowdskout account manager
-code | The obtained authorization code
-redirect_uri | Same `redirect_uri`
-grant_type | Must be "authorization_code"
+``` json
+{
+  "access_token" : "abcd1234",
+  "token_type" : "Bearer",
+  "expires_in" : 315360000
+}
+```
+
+`POST https://api.crowdskout.com/oauth/access_token`
+
+Use your authorization code to obtain an access token. Include the following in the body of your request,
+as **Content-Type: application/x-www-form-urlencoded**:
+
+Parameter|Required?|Description
+---------|---------|-----------
+client_id|Yes|The `client_id` provided by your Crowdskout account manager
+client_secret|Yes|The `client_secret` provided by your Crowdskout account manager
+code|Yes|The obtained authorization code
+redirect_uri|Yes|Same `redirect_uri`
+grant_type|Yes|Must be `authorization_code`
 
 Crowdskout will respond with an `access_token`.
 
 ## Using the API
 
-With an `access_token`, you can access the Crowdskout API.
-
-`https://api.crowdskout.com/v1/api-endpoint`
-
-Include the header **Authorization: Bearer _token_** in every request, where _token_ is your obtained
-`access_token`.
+With an `access_token`, you can access the Crowdskout API. After acquiring a token, include the header
+**Authorization: Bearer {token}** in every request, where {token} is your obtained `access_token`.
 
 # Profile
 These endpoints allow you to retrieve and update profile information in Crowdskout either individually or in bulk.
@@ -99,7 +106,7 @@ collections|Yes|A comma-delimited list of collections to include|`Names,EmailAdd
 `POST https://api.crowdskout.com/v1/profile`
 
 You can create a profile by sending the [Profile Object](#the-profile-object) in the request body. All IDs will be
-ignored in the object and all collection items will be created a new. The endpoint will return the
+ignored in the object and all collection items will be created anew. The endpoint will return the
 [Profile Object](#the-profile-object) with all of the IDs attached to the object and its collection items. If an item
 is provided with insufficient or invalid information, that item will be removed from the collection silently, and the
 rest of the valid data will be saved.
@@ -141,7 +148,7 @@ profile|Yes|The profile object to update|See the [Profile Object](#the-profile-o
 
 ## Update Many Profiles
 
-`PUT https://api.crowdskout.com/api/profile/bulk`
+`PUT https://api.crowdskout.com/v1/profile/bulk`
 
 You can update many profiles by sending an array of [Profile Objects](#the-profile-object) with an ID on each object in
 the request body. Collection items with IDs will be updated using the information provided.
