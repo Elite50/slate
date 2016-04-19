@@ -123,9 +123,9 @@
 
 <p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<p>This example API documentation page was created with It<a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
 
-          <h1 id="authentication">Authentication</h1>
+<h1 id="authentication">Authentication</h1>
 
 <p>The Crowdskout API uses the OAuth 2 Authorization Code flow for authentication.</p>
 
@@ -229,6 +229,451 @@ url:</p>
 
 <p>Include the header <strong>Authorization: Bearer <em>token</em></strong> in every request, where <em>token</em> is your obtained
 <code class="prettyprint">access_token</code>.</p>
+
+<h1 id="profile">Profile</h1>
+
+<p>These endpoints allow you to retrieve and update profile information in Crowdskout either individually or in bulk.</p>
+
+<h2 id="get-a-profile-by-id">Get a Profile by ID</h2>
+
+<p><code class="prettyprint">GET https://api.crowdskout.com/v1/profile/{id}?collections={collections}</code></p>
+
+<p>You can retrieve a profile by ID and a comma-delimited list of collections. The profile will be returned as the <a href="#the-profile-object">Profile Object</a>.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Yes</td>
+<td>The profile ID we want to retrieve</td>
+<td><code class="prettyprint">1</code></td>
+</tr>
+<tr>
+<td>collections</td>
+<td>Yes</td>
+<td>A comma-delimited list of collections to include</td>
+<td><code class="prettyprint">Names,EmailAddresses,Ages</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="create-a-profile">Create a Profile</h2>
+
+<p><code class="prettyprint">POST https://api.crowdskout.com/v1/profile</code></p>
+
+<p>You can create a profile by sending the <a href="#the-profile-object">Profile Object</a> in the request body. All IDs will be
+ignored in the object and all collection items will be created a new. The endpoint will return the
+<a href="#the-profile-object">Profile Object</a> with all of the IDs attached to the object and its collection items. If an item
+is provided with insufficient or invalid information, that item will be removed from the collection silently, and the
+rest of the valid data will be saved.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>profile</td>
+<td>Yes</td>
+<td>The profile to create</td>
+<td>See the <a href="#the-profile-object">Profile Object</a> documentation</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-many-profiles">Create Many Profiles</h2>
+
+<p><code class="prettyprint">POST https://api.crowdskout.com/v1/profile/bulk</code></p>
+
+<p>You can create many profiles by sending an array of <a href="#the-profile-object">Profile Objects</a> in the request body. Similar
+to the single create endpoint, it ignores all IDs in the request and returns an array of the same profile objects passed
+in with IDs appended to the profile and the collection items. Any invalid items will be silently ignored and not present
+in the response.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>profiles</td>
+<td>Yes</td>
+<td>The array of profiles to create</td>
+<td>See the <a href="#the-profile-object">Profile Object</a> documentation</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-a-profile-by-id">Update a Profile by ID</h2>
+
+<p><code class="prettyprint">PUT https://api.crowdskout.com/v1/profile/{id}</code></p>
+
+<p>You can update a single profile by sending the <a href="#the-profile-object">Profile Object</a>. Collection items with IDs will be
+updated with the information provided.</p>
+
+<p>To add an item to a profile, provide the item in the appropriate collection in the profile object, with either
+<code class="prettyprint">&quot;id&quot; : 0</code> or no <code class="prettyprint">id</code> field at all.</p>
+
+<p>To delete an item in a collection, provide the item as normal in the collection with an ID, and add <code class="prettyprint">&quot;delete&quot;:true</code> to
+the item. All other fields in that item besides <code class="prettyprint">id</code> and <code class="prettyprint">delete</code> will be ignored.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Yes</td>
+<td>The ID of the profile object to update</td>
+<td><code class="prettyprint">1</code></td>
+</tr>
+<tr>
+<td>profile</td>
+<td>Yes</td>
+<td>The profile object to update</td>
+<td>See the <a href="#the-profile-object">Profile Object</a> documentation</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-many-profiles">Update Many Profiles</h2>
+
+<p><code class="prettyprint">PUT https://api.crowdskout.com/api/profile/bulk</code></p>
+
+<p>You can update many profiles by sending an array of <a href="#the-profile-object">Profile Objects</a> with an ID on each object in
+the request body. Collection items with IDs will be updated using the information provided.</p>
+
+<p>To add an item to a profile, provide the item in the appropriate collection in the profile object, with either
+<code class="prettyprint">&quot;id&quot; : 0</code> or no <code class="prettyprint">id</code> field at all.</p>
+
+<p>To delete an item in a collection, provide the item as normal in the collection with an ID, and add <code class="prettyprint">&quot;delete&quot;:true</code> to
+the item. All other fields in that item besides <code class="prettyprint">id</code> and <code class="prettyprint">delete</code> will be ignored.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>profile</td>
+<td>Yes</td>
+<td>The profile objects to update, requires an <code class="prettyprint">id</code> on each object</td>
+<td>See the <a href="#the-profile-object">Profile Object</a> documentation</td>
+</tr>
+</tbody></table>
+
+<h1 id="fields">Fields</h1>
+
+<h2 id="get-the-options-for-a-field">Get the Options for a Field</h2>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"collection"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"PhysicalAddresses"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"options"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Chicago"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Springfield"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><code class="prettyprint">GET https://api.crowdskout.com/v1/fields/{field}/options?{dependencyName}={dependencyId}</code></p>
+
+<p>Retrieves all the available options for the provided field. This returns an object with the name of the collection of
+the provided field and an array of options. These options are not always an exclusive list and many fields let you
+provide a new value when updating or creating a profile.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>field</td>
+<td>Yes</td>
+<td>The name of the field to retrieve options for</td>
+<td><code class="prettyprint">AddressCity</code></td>
+</tr>
+<tr>
+<td>dependencyName</td>
+<td>No</td>
+<td>The field name of the supplied field&rsquo;s parent to filter options</td>
+<td><code class="prettyprint">AddressRegion</code></td>
+</tr>
+<tr>
+<td>dependencyId</td>
+<td>No</td>
+<td>The ID of a value in the <code class="prettyprint">dependencyName</code> options that we want to filter options on</td>
+<td><code class="prettyprint">14</code></td>
+</tr>
+</tbody></table>
+
+<h1 id="attributes">Attributes</h1>
+
+<h2 id="get-all-attributes">Get All Attributes</h2>
+
+<p><code class="prettyprint">GET https://api.crowdskout.com/v1/attribute?limit={limit}&amp;offset={offset}</code></p>
+
+<p>Retrieves all of the attributes for the client. An offset and limit can be passed in to page through results.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>No</td>
+<td>The number of attributes to limit our return to</td>
+<td><code class="prettyprint">50</code></td>
+</tr>
+<tr>
+<td>offset</td>
+<td>No</td>
+<td>The number of attributes to skip when fetching attributes</td>
+<td><code class="prettyprint">0</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="get-an-attribute-by-id">Get an Attribute by ID</h2>
+
+<p><code class="prettyprint">GET https://api.crowdskout.com/v1/attribute/{id}</code></p>
+
+<p>Retrieves a single attribute for the client.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Yes</td>
+<td>The ID of the attribute to retrieve</td>
+<td><code class="prettyprint">1</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="create-an-attribute">Create an Attribute</h2>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Attribute"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Radio"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"options"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Option 1"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Option 2"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+     </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Attribute"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Radio"</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"locked"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+     </span><span class="nt">"options"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Option 1"</span><span class="w">
+       </span><span class="p">},</span><span class="w">
+       </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Option 2"</span><span class="w">
+       </span><span class="p">}</span><span class="w">
+     </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><code class="prettyprint">POST https://api.crowdskout.com/v1/attribute</code></p>
+
+<p>Creates an attribute for the client. Takes a number of parameters in the body of the request.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>Yes</td>
+<td>The name of the attribute we&rsquo;re creating</td>
+<td><code class="prettyprint">Test Attribute</code></td>
+</tr>
+<tr>
+<td>type</td>
+<td>Yes</td>
+<td>The type of attribute we&rsquo;re creating</td>
+<td>Must be one of: <code class="prettyprint">Radio</code>, <code class="prettyprint">Checkbox</code>, <code class="prettyprint">Text</code>, <code class="prettyprint">Number</code>, <code class="prettyprint">Tag</code>, <code class="prettyprint">Date</code>, <code class="prettyprint">Datetime</code></td>
+</tr>
+<tr>
+<td>options</td>
+<td>Sometimes</td>
+<td>An array of options for the attribute, required if the supplied type is <code class="prettyprint">Radio</code> or <code class="prettyprint">Checkbox</code></td>
+<td>See sidebar</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-an-attribute">Update an Attribute</h2>
+
+<blockquote>
+<p>Request</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Attribute 2"</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"options"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Option 3"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"delete"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Option 2"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Option 4"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"name"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Attribute 2"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Radio"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"locked"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"options"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Option 3"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"Option 4"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><code class="prettyprint">PUT https://api.crowdskout.com/v1/attribute/{id}</code></p>
+
+<p>Updates an attribute for the client with the provided ID. Takes a number of parameters in the body of the request. The
+type of an attribute cannot be changed. In the options array provided, any options with an ID will have their value
+updated. Any options with <code class="prettyprint">&quot;id&quot; : 0</code> or no <code class="prettyprint">id</code> field will be added. Any options with <code class="prettyprint">&quot;delete&quot; : true</code> will be deleted.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>name</td>
+<td>No</td>
+<td>The name we want to set the attribute to</td>
+<td><code class="prettyprint">Test Attribute 2</code></td>
+</tr>
+<tr>
+<td>options</td>
+<td>No</td>
+<td>A set of options we want to update</td>
+<td>See sidebar</td>
+</tr>
+</tbody></table>
+
+<h2 id="delete-an-attribute">Delete an Attribute</h2>
+
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nt">"success"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="nt">"messages"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="nt">"data"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><code class="prettyprint">DELETE https://api.crowdskout.com/v1/attribute/{id}</code></p>
+
+<p>Deletes an attribute with the provided ID.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required?</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Yes</td>
+<td>The ID of the attribute to delete</td>
+<td><code class="prettyprint">1</code></td>
+</tr>
+</tbody></table>
 
           <h1 id="the-profile-object">The Profile Object</h1>
 
