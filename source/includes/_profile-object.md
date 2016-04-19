@@ -133,20 +133,6 @@ null | A *Field* without a *Value*
       }
     }
   ],
-  "CandidateSupports" : [
-    {
-      "id" : 1,
-      "SupportCandidate" : {
-        "id" : 1,
-        "value" : "Carly Fiorina"
-      },
-      "CandidateSupportLevel" : {
-        "id" : 1,
-        "value" : "Strongly Support"
-      },
-      "CandidateSupportDate" : "2016-01-10"
-    }
-  ],
   "Children" : [
     {
       "id" : 1,
@@ -162,50 +148,6 @@ null | A *Field* without a *Value*
       "id" : 1,
       "CrowdskoutScore" : 40,
       "CrowdskoutScoreLabel" : "Moderately Engaged"
-    }
-  ],
-  "Devices" : [
-    {
-      "id" : 1,
-      "DeviceType" : {
-        "id" : 1,
-        "value" : "Desktop"
-      },
-      "DeviceOperatingSystem" : {
-        "id" : 1,
-        "value" : "OS X 10.10"
-      },
-      "DeviceModel" : {
-        "id" : 1,
-        "value" : "Mac Book Pro"
-      },
-      "DeviceIDs" : [
-        {
-          "id" : 1,
-          "DeviceIDType" : "GCMID",
-          "DeviceIDValue" : "c45922be-d81f-4342-b4bb-f29bd4322169"
-        }
-      ]
-    }
-  ],
-  "DirectMails" : [
-    {
-      "id" : "7d8c86ac-aaed-45a3-9ae9-a4b9602c5ec9",
-      "DirectMailOrganization" : {
-        "id" : 1,
-        "value" : "Modern Notion"
-      },
-      "DirectMailWhen" : "2014-12-15T12:00:00+00",
-      "DirectMailing" : {
-        "id" : 1,
-        "value" : "Postcards for Greatness"
-      },
-      "DirectMailerType" : {
-        "id" : "postcard", 
-        "value" : "Postcard"
-      },
-      "DirectMailSolicitationCode" : "0315FP",
-      "DirectMailAddress" : "1875 Connecticut Ave. NW, 10th Floor, Washington DC, 20009"
     }
   ],
   "DistrictCensusBlockGroups" : [
@@ -560,115 +502,6 @@ null | A *Field* without a *Value*
       }
     }
   ],
-  "EmailBounces": [
-    {
-      "id": "ebe43c2f-c0db-4820-a370-f1210c120aea",
-      "EmailBounceOrganization" : {
-        "id" : 1,
-        "value" : "Modern Notion"
-      },
-      "EmailBounceWhen": "2014-12-15T12:00:00+00",
-      "EmailBounceService": "mailchimp",
-      "EmailBounceEmail": "george@crowdskout.com",
-      "EmailBounceEmailing": {
-        "id" : "mailchimp1",
-        "externalId" : 1,
-        "service" : "mailchimp",
-        "value" : "A bad list emailing"
-      }
-    }
-  ],
-  "EmailClicks": [
-    {
-      "id": "ebe43c2f-c0db-4820-a370-f1210c120aea",
-      "EmailClickOrganization" : {
-        "id" : 1,
-        "value" : "Modern Notion"
-      },
-      "EmailClickWhen": "2014-12-15T12:00:00+00",
-      "EmailClickURL": "http://app.crowdskout.com",
-      "EmailClickEmail": "george@crowdskout.com",
-      "EmailClickService" : "mailchimp",
-      "EmailClickEmailing" : {
-        "id" : "mailchimp1",
-        "externalId" : 1,
-        "service" : "mailchimp",
-        "value" : "A good list emailing"
-      }
-    }
-  ],
-  "EmailOpens": [
-    {
-      "id": "ebe43c2f-c0db-4820-a370-f1210c120aea",
-      "EmailOpenOrganization" : {
-        "id" : 1,
-        "value" : "Modern Notion"
-      },
-      "EmailOpenWhen": "2014-12-15T12:00:00+00",
-      "EmailOpenService": "mailchimp",
-      "EmailOpenEmail": "george@crowdskout.com",
-      "EmailOpenEmailing" : {
-        "id" : "mailchimp1",
-        "externalId" : 1,
-        "service" : "mailchimp",
-        "value" : "A good list emailing"
-      }
-    }
-  ],
-  "EmailSends" : [
-    {
-      "id": "ebe43c2f-c0db-4820-a370-f1210c120aea",
-      "EmailSendOrganization" : {
-        "id" : 1,
-        "value" : "Modern Notion"
-      },
-      "EmailSendWhen" : "2012-01-25T12:00:00+00",
-      "EmailSendService" : "mailchimp",
-      "EmailSendEmail" : "george@crowdskout.com",
-      "EmailSendEmailing" : {
-        "id" : "mailchimp1",
-        "externalId" : 1,
-        "service" : "mailchimp",
-        "value" : "A good list emailing"
-      }
-    }
-  ],
-  "EmailSpamComplaints": [
-    {
-      "id": "ebe43c2f-c0db-4820-a370-f1210c120aea",
-      "EmailSpamComplaintOrganization" : {
-        "id" : 1,
-        "value" : "Modern Notion"
-      },
-      "EmailSpamComplaintWhen": "2014-12-15T12:00:00+00",
-      "EmailSpamComplaintService": "mailchimp",
-      "EmailSpamComplaintEmail": "george@crowdskout.com",
-      "EmailSpamComplaintEmailing" : {
-        "id" : "mailchimp1",
-        "externalId" : 1,
-        "service" : "mailchimp",
-        "value" : "A bad list emailing"
-      }
-    }
-  ],
-  "EmailUnsubscribes": [
-    {
-      "id": "ebe43c2f-c0db-4820-a370-f1210c120aea",
-      "EmailUnsubscribeOrganization" : {
-        "id" : 1,
-        "value" : "Modern Notion"
-      },
-      "EmailUnsubscribeWhen": "2014-12-15T12:00:00+00",
-      "EmailUnsubscribeService": "mailchimp",
-      "EmailUnsubscribeEmail": "george@crowdskout.com",
-      "EmailUnsubscribeEmailing" : {
-        "id" : "mailchimp1",
-        "externalId" : 1,
-        "service" : "mailchimp",
-        "value" : "A bad list emailing"
-      }
-    }
-  ],
   "Ethnicities" : [
     {
       "id" : 1,
@@ -676,47 +509,6 @@ null | A *Field* without a *Value*
         "id" : 1,
         "value" : "Caucasian"
       }
-    }
-  ],
-  "EventAttendances" : [
-    {
-      "id" : "ebe43c2f-c0db-4820-a370-f1210c120aea",
-      "EventAttendanceOrganization" : {
-        "id" : 1,
-        "value" : "Modern Notion"
-      },
-      "EventAttendanceWhen" : "2016-01-01T12:00:00+00",
-      "EventAttendanceType" : {
-        "id" : "debate-watch-party",
-        "value" : "Debate Watch Party"
-      },
-      "EventAttendanceHost" : {
-        "id" : "george-yates",
-        "value" : "George Yates"
-      },
-      "EventAttendanceIsHost" : {
-        "id" : "yes",
-        "value" : "Yes"
-      }
-    }
-  ],
-  "EventRegistrations" : [
-    {
-      "id" : "ebe43c2f-c0db-4820-a370-f1210c120aea",
-      "EventRegistrationOrganization" : {
-        "id" : 1,
-        "value" : "Modern Notion"
-      },
-      "EventRegistrationWhen" : "2014-12-15T12:00:00+00",
-      "EventRegistrationEvent" : {
-        "id" : "new-years-eve-eve", 
-        "value" : "New Years Eve Eve"
-      },
-      "EventRegistrationEventDatetime" : "2014-12-30T12:00:00Z",
-      "EventRegistrationEventDescription" : "A day of joyous celebration",
-      "EventRegistrationEventURL" : "http://eventbrite.com",
-      "EventRegistrationTicketName" : "VIP",
-      "EventRegistrationDiscountCode" : "20OFF"
     }
   ],
   "ExternalIDs" : [
@@ -735,13 +527,6 @@ null | A *Field* without a *Value*
         "id": 2,
         "value": "VoteSpotter Database ID"
       }
-    }
-  ],
-  "Facebooks" : [
-    {
-      "id" : 1,
-      "FacebookID" : "1235676",
-      "FacebookURL" : "http://facebook.com/1235676"
     }
   ],
   "Genders" : [
@@ -887,36 +672,6 @@ null | A *Field* without a *Value*
       ]
     }
   ],
-  "LegislatorContacts" : [
-    {
-      "id" : "f13d1056-bdf3-4096-8f2f-3a413f580990",
-      "LegislatorContactOrganization" : {
-        "id" : 1,
-        "value" : "Modern Notion"
-      },
-      "LegislatorContactWhen" : "2014-12-15T12:00:00+00",
-      "LegislatorContactLegislator" : {
-        "id" : 1,
-        "value" : "Senator Grace"
-      },
-      "LegislatorContactLegislation" : {
-        "id" : 1,
-        "value" : "HRS115 CISPA"
-      },
-      "LegislatorContactWhy" : "Against",
-      "LegislatorContactPlatform" : {
-        "id" : "email",
-        "value" : "Email"
-      }
-    }
-  ],
-  "LinkedIns" : [
-    {
-      "id" : 1,
-      "LinkedInID" : "1235676",
-      "LinkedInURL" : "http://linkedin.com/1235676"
-    }
-  ],
   "MaritalStatuses" : [
     {
       "id" : 5,
@@ -947,56 +702,6 @@ null | A *Field* without a *Value*
       "MemberDonor" : {
         "id" : "yes",
         "value" : "Yes"
-      }
-    }
-  ],
-  "MobileAppInstalls" : [
-    {
-      "id" : "ec41abe4-ecb9-469f-b0ce-345d57d8e356",
-      "MobileAppInstallOrganization" : {
-        "id" : 1,
-        "value" : "Modern Notion"
-      },
-      "MobileAppInstallWhen" : "2015-01-01T12:00:00+00",
-      "MobileAppInstallCity" : {
-        "id" : 1,
-        "value" : "Chicago"
-      },
-      "MobileAppInstallRegion" : {
-        "id" : 1,
-        "value" : "Illinois"
-      },
-      "MobileAppInstallCountry" : {
-        "id" : 1,
-        "value" : "USA"
-      }
-    }
-  ],
-  "MobileAppSessions" : [
-    {
-      "id" : "e983c1cf-0672-4ebd-9ae6-7d91902776c1",
-      "MobileAppSessionOrganization" : {
-        "id" : 1,
-        "value" : "Modern Notion"
-      },
-      "MobileAppSessionWhen" : "2015-01-01T12:00:00+00",
-      "MobileAppSessionDuration" : 30,
-      "MobileAppSessionScreens" : [
-        "Login",
-        "List view",
-        "Detail view"
-      ],
-      "MobileAppSessionCity" : {
-        "id" : 1,
-        "value" : "Chicago"
-      },
-      "MobileAppSessionRegion" : {
-        "id" : 1,
-        "value" : "Illinois"
-      },
-      "MobileAppSessionCountry" : {
-        "id" : 1,
-        "value" : "USA"
       }
     }
   ],
@@ -1196,54 +901,6 @@ null | A *Field* without a *Value*
       }
     }
   ],
-   "SocialEngages": [
-    {
-     "id": "00a6d60d-25af-4d5d-a17d-d68a9eeb7a63",
-      "SocialEngageOrganization": {
-        "id": 1,
-        "value": "Crowdskout"
-      },
-      "SocialEngageWhen": "2015-04-19T19:07:29+00",
-      "SocialEngageService": {
-        "id" : "facebook",
-        "value" : "Facebook"
-      },
-      "SocialEngageEngages": "cnn content"
-    }
-  ],
-  "SocialShares": [
-    {
-      "id": "00a6d60d-25af-4d5d-a17d-d68a9eeb7a63",
-      "SocialShareOrganization": {
-        "id": 1,
-        "value": "Crowdskout"
-      },
-      "SocialShareWhen": "2015-04-19T19:06:16+00",
-      "SocialShareService": {
-        "id" : "facebook",
-        "value" : "Facebook"
-      },
-      "SocialShareURL": "google.com",
-      "SocialShareTitle" : "Against - HRS1115 CISPA"
-    }
-  ],
-  "StateVoterRegistrations" : [
-    {
-      "id" : 1,
-      "StateRegisteredVoter" : {
-        "id" : "yes",
-        "value" : "Yes"
-      },
-      "StateVoterID" : "abcdjkl123",
-      "CountyVoterID" : "abdhwjdw",
-      "OriginalVoterRegistrationDate" : "2012-07-12",
-      "LatestVoterRegistrationDate" : "2014-08-14",
-      "VoterRegistrationParty" : {
-        "id" : 1,
-        "value" : "Democrat"
-      }
-    }
-  ],
   "Students" : [
     {
       "id" : 1,
@@ -1253,166 +910,12 @@ null | A *Field* without a *Value*
       }
     }
   ],
-  "Submissions" : [
-    {
-      "id" : "398de1a7-e234-4a4c-b10c-86f2b2bd351d",
-      "SubmissionOrganization" : {
-        "id" : 1,
-        "value" : "Modern Notion"
-      },
-      "SubmissionWhen" : "2012-01-25T12:00:00.000Z",
-      "SubmissionForm" : {
-        "id" : 5,
-        "value" : "Test Form"
-      },
-      "SubmissionFormType": {
-        "id" : "quiz",
-        "value" : "Quiz"
-      },
-      "SubmissionFormSubTypes" : [
-        "Checklist"
-      ],
-      "SubmissionResponses" : [
-        {
-          "Question" : {
-            "id" : "whats-your-favorite-color",
-            "value" : "What's your favorite color?"
-          },
-          "Answers" : [
-            {
-              "id" : 1,
-              "value" : "Blue"
-            }
-          ]
-        },
-        {
-          "Question" : {
-            "id" : "email",
-            "value" : "Email"
-          },
-          "Answers" : [
-            {
-              "id" : "george@crowdskout.com",
-              "value" : "george@crowdskout.com"
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "ThirdPartySubmissions" : [
-    {
-      "id": "398de1a7-e234-4a4c-b10c-86f2b2bd351d",
-      "ThirdPartySubmissionOrganization" : {
-        "id" : 1,
-        "value" : "Modern Notion"
-      },
-      "ThirdPartySubmissionWhen": "2014-12-15T12:00:00+00",
-      "ThirdPartySubmissionURL" : "http://crowdskout.com",
-      "ThirdPartySubmissionResponses" : [
-        {
-          "Question" : {
-            "id" : "whats-your-favorite-color",
-            "value" : "What's your favorite color?"
-          },
-          "Answers" : [
-            {
-              "id" : 1,
-              "value" : "Blue"
-            }
-          ]
-        },
-        {
-          "Question" : {
-            "id" : "email",
-            "value" : "Email"
-          },
-          "Answers" : [
-            {
-              "id" : "george@crowdskout.com",
-              "value" : "george@crowdskout.com"
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "Twitters" : [
-    {
-      "id" : 1,
-      "TwitterID" : "860711557",
-      "TwitterURL" : "http://twitter.com/georgeyatesiii"
-    }
-  ],
   "Veterans" : [
     {
       "id" : 1,
       "Veteran" : {
         "id" : "yes",
         "value" : "Yes"
-      }
-    }
-  ],
-  "VideoPlays": [
-    {
-      "id": "e09260a7-d898-4d4b-8be7-1818892737b2",
-      "VideoPlayOrganization" : {
-        "id" : 1,
-        "value" : "Modern Notion"
-      },
-      "VideoPlayWhen": "2014-12-15T12:00:00+00",
-      "VideoPlayService" : {
-        "id" : "youtube",
-        "value" : "YouTube"
-      },
-      "VideoPlayTitle" : "Cat shark roomba duck",
-      "VideoPlayURL" : "http://youtube.com",
-      "VideoPlayStarted" : 0,
-      "VideoPlayStopped" : 202,
-      "VideoPlayDuration" : 202,
-      "VideoPlayFinished" : {
-        "id" : "yes",
-        "value" : "Yes"
-      }
-    }
-  ],
-  "VoterRegistrationInteractions" : [
-    {
-      "id" : "2c2028c1-6a2b-4d47-9674-627b72c808ac",
-      "VoterRegistrationInteractionOrganization" : {
-        "id" : 1,
-        "value" : "Modern Notion"
-      },
-      "VoterRegistrationInteractionWhen" : "2014-12-15T12:00:00Z",
-      "VoterRegistrationInteractionParty" : {
-        "id" : 1,
-        "value" : "Democrat"
-      },
-      "VoterRegistrationInteractionType" : {
-        "id" : "change-of-address",
-        "value" : "Change of Address"
-      },
-      "VoterRegistrationInteractionPetitionType" : {
-        "id" : "epa",
-        "value" : "EPA"
-      },
-      "VoterRegistrationInteractionLocation" : "Voter Registration Drive",
-      "VoterRegistrationInteractionLocationType" : {
-        "id" : "event",
-        "value" : "Event"
-      },
-      "VoterRegistrationInteractionTurnedIn" : "2015-01-01",
-      "VoterRegistrationInteractionLead" : {
-        "id" : 1,
-        "value" : "George Yates"
-      },
-      "VoterRegistrationInteractionNonStafferCollector" : {
-        "id" : 1,
-        "value" : "Will Durney"
-      },
-      "VoterRegistrationInteractionRole" : {
-        "id" : "rli-fellow",
-        "value" : "RLI Fellow"
       }
     }
   ],
@@ -1483,23 +986,10 @@ Attributes | AttributeID | The ID of the Attribute itself
  | AttributeType | The type of the attribute
  | AttributeValue | The value for this attribute for the profile, could be a number of different *Value* types depending on the AttributeType
 BusinessOwners | BusinessOwner | Whether or not the profile is a business owner
-CandidateSupports | SupportCandidate | The candidate that the profile has indicated a support level for
- | CandidateSupportLevel | The level of support that the profile has indicated for the candidate
- | CandidateSupportDate | The date the profile indicated their support for the candidate
 Children | ChildAge | The age of the child this profile has
  | ChildGender | The gender of the child this profile has
 CrowdskoutScores | CrowdskoutScore | A numeric representation of the level of engagement of the profile with the client
  | CrowdskoutScoreLabel | A string representation of the level of engagement
-Devices | DeviceType | A type of device that the profile uses
- | DeviceOperatingSystem | The operating system on a device that the profile uses
- | DeviceModel | The specific model of a device that the profile uses
- | DeviceIDs | An array of device IDs for a specific device that the profile uses
-DirectMails | DirectMailOrganization | The organization that sent the direct mail piece
- | DirectMailWhen | The datetime that the direct mail piece was sent
- | DirectMailing | A poser object representation of the direct mailing campaign
- | DirectMailerType | The specific type of mailer sent to the profile
- | DirectMailSolicitationCode | The solicitation code used in the direct mailer as it ties back to a donation system
- | DirectMailAddress | A single string representation of the address that the mailer was sent to
 DistrictCensusBlockGroups | DistrictCensusBlockGroup | The name of the census block group that the profile resides in
 DistrictCensusTracts | DistrictCensusTract | The name of the census tract that the profile resides in
 DistrictCities | DistrictCity | The name of the city district that the profile resides in
@@ -1549,55 +1039,9 @@ Educations | GraduationYear | The year the profile graduated or will graduate fr
 EmailAddresses | Email | An email address for the profile
  | EmailContact | The contact type of the email address
  | EmailUsable | Whether or not the email is usable
-EmailBounces | EmailBounceOrganization | The organization that sent the email that bounced
- | EmailBounceWhen | The datetime that the email bounced
- | EmailBounceService | The ESP service that sent the email that bounced
- | EmailBounceEmail | The email address that the email was sent to
- | EmailBounceEmailing | The emailing that the email that bounced was apart of
-EmailClicks | EmailClickOrganization | The organization that sent the email that was clicked
- | EmailClickWhen | The datetime that the email was clicked
- | EmailClickURL | The URL of the link that was clicked
- | EmailClickEmail | The email address that the email was sent to
- | EmailClickService | The ESP service that sent the email that was clicked
- | EmailClickEmailing | The emailing that the email that was clicked was apart of
-EmailOpens | EmailOpenOrganization | The organization that sent the email that was opened
- | EmailOpenWhen | The datetime that the email was opened
- | EmailOpenService | The ESP service that sent the email that was opened
- | EmailOpenEmail | The email address that the email was sent to
- | EmailOpenEmailing | The emailing that the email that was opened was apart of
-EmailSends | EmailSendOrganization | The organization that sent the email
- | EmailSendWhen | The datetime that the email was sent
- | EmailSendService | The ESP service that sent the email
- | EmailSendEmail | The email address that the email was sent to
- | EmailSendEmailing | The emailing that the email was apart of
-EmailSpamComplaints | EmailSpamComplaintOrganization | The organization that sent the email that had a complaint
- | EmailSpamComplaintWhen | The datetime that the complaint was filed
- | EmailSpamComplaintService | The ESP service that sent the email
- | EmailSpamComplaintEmail | The email address that the email was sent to that complained
- | EmailSpamComplaintEmailing | The emailing that the email was apart of
-EmailUnsubscribes | EmailUnsubscribeOrganization | The organization that sent the email
- | EmailUnsubscribeWhen | The datetime that the profile unsubscribed
- | EmailUnsubscribeService | The ESP service that sent the email
- | EmailUnsubscribeEmail | The email address that the email was sent to
- | EmailUnsubscribeEmailing | The emailing that the email was apart of
 Ethnicities | Ethnicity | The ethnicity of the profile
-EventAttendances | EventAttendanceOrganization | The organization that put on the event
- | EventAttendanceWhen | The datetime that the profile attended the event
- | EventAttendanceType | The type of event that the profile attended
- | EventAttendanceHost | The host of the event
- | EventAttendanceIsHost | Whether or not the profile hosted this event
-EventRegistrations | EventRegistrationOrganization | The organization that put on the event
- | EventRegistrationWhen | The datetime that the profile registered for the event
- | EventRegistrationEvent | The event that was registered for
- | EventRegistrationEventDatetime | The datetime of the event that was registered for
- | EventRegistrationEventDescription | The description of the event that was registered for
- | EventRegistrationEventURL | A URL for a web page of the event that was registered for
- | EventRegistrationTicketName | The name of the ticket that was purchased during the registration
- | EventRegistrationDiscountCode | The discount code used during registration
 ExternalIDs | ExternalID | The value of the external ID
  | ExternalIDType | The type of the external ID
-Facebooks | FacebookID | The ID of the Facebook account
- | FacebookURL | The URL link to the Facebook account
 Genders | Gender | The gender of the profile
 Households | HeadOfHousehold | A flag indicating whether the profile is the head of the household
 Images | Image | A URL to a photo of the profile
@@ -1625,14 +1069,6 @@ LegislationPositions | LegislationPositionDateTaken | When the profile took this
  | LegislationPositionLegislationEndYear | The year that the legislation was either passed into law or voted down
  | LegislationPositionLegislationDistrict | The political district that the legislation was introduced in
  | LegislationPositionGovernmentBodies | The governmental body that the legislation is being considered in
-LegislatorContacts | LegislatorContactOrganization | The organization that the legislator was contacted on behalf of
- | LegislatorContactWhen | The datetime that the legislator was contacted
- | LegislatorContactLegislator | The legislator who was contacted
- | LegislatorContactLegislation | The legislation that the legislator was contacted about
- | LegislatorContactWhy | The reason that the profile contacted the legislator
- | LegislatorContactPlatform | The platform that the profile used to contact the legislator
-LinkedIns | LinkedInID | The ID of the LinkedIn account linked to the profile
- | LinkedInURL | The URL to the LinkedIn account of the profile
 MaritalStatuses | MaritalStatus | The marital status of the profile
 Memberships | MemberOrganization | The organization that the profile has a membership to
  | MemberActive | A flag indicating whether the profile is an active member of the organization
@@ -1641,18 +1077,6 @@ Memberships | MemberOrganization | The organization that the profile has a membe
  | MemberLeft | The date that the profile left the organization
  | MemberLeader | A flag indicating whether or not the profile is a leader in the organization
  | MemberDonor | A flag indicating whether or not the profile is a donor to the organization
-MobileAppInstalls | MobileAppInstallOrganization | The organization whose mobile application was installed
- | MobileAppInstallWhen | The datetime that the mobile application was installed by the profile
- | MobileAppInstallCity | The city that the mobile application was installed in
- | MobileAppInstallRegion | The region that the mobile application was installed in
- | MobileAppInstallCountry | The country that the mobile application was installed in
-MobileAppSessions | MobileAppSessionOrganization | The organization whose mobile application occurred a session
- | MobileAppSessionWhen | The datetime that the session occurred
- | MobileAppSessionDuration | The length of the session in seconds
- | MobileAppSessionScreens | An array of screen names in order that they were viewed during the session
- | MobileAppSessionCity | The city that the session occurred in
- | MobileAppSessionRegion | The region that the session occurred in
- | MobileAppSessionCountry | The country that the session occurred in 
 Names | FullName | The whole name value in a single string
  | NameTitle | The title for the profile
  | FirstName | The first name of the profile
@@ -1712,55 +1136,8 @@ PhoneAddresses | Address1 | The first line of the address where the profile live
 PoliticalOrientationScores | PoliticalOrientationScore | A numeric value of the intensity of political orientation
  | PoliticalOrientationScoreLabel | A text value of the way a profile is politically oriented
 Religions | Religion | The religion of the profile
-SocialEngages | SocialEngageOrganization | The organization that the profile engaged on social media
- | SocialEngageWhen | The datetime when the profile engaged the organization on social media
- | SocialEngageService | The service that the profile used to engage the organization
- | SocialEngageEngages | The specific account on social media that the profile engaged
-SocialShares | SocialShareOrganization | The organization whose content the profile shared on social media
- | SocialShareWhen | The datetime when the profile shared the content on social media
- | SocialShareService | The service that the profile shared content on
- | SocialShareURL | The URL of the content that the profile shared
- | SocialShareTitle | The title of content that the profile shared
-StateVoterRegistrations | StateRegisteredVoter | A flag indicating whether or not the profile is a registered voter
- | StateVoterID | The state voter ID of the profile
- | CountyVoterID | The county voter ID of the profile
- | OriginalVoterRegistrationDate | The original date the profile registered as a voter
- | LatestVoterRegistrationDate | The latest date the profile registered to vote
- | VoterRegistrationParty | The party that the profile is registered to vote as
 Students | Student | A flag indicating whether or not the profile is a student
-Submissions | SubmissionOrganization | The organization whose form was submitted
- | SubmissionWhen | The datetime when the form was submitted
- | SubmissionForm | The form that was submitted
- | SubmissionFormType | The specific type of form that was submitted
- | SubmissionFormSubTypes | An array of sub-types that the form belongs to
- | SubmissionResponses | An array of question and answers objects that represent all the fields in the submission
-ThirdPartySubmissions | ThirdPartySubmissionOrganization | The organization whose form was submitted
- | ThirdPartySubmissionWhen | The datetime that the submission occurred
- | ThirdPartySubmissionURL | The URL that the third party form was submitted on
- | ThirdPartySubmissionResponses | An array of question and answers objects, each representing a field in the submitted form
-Twitters | TwitterID | The account ID of the Twitter account associated with the profile
- | TwitterURL | The URL to the Twitter account page
 Veterans | Veteran | A flag indicating whether or not the profile is a veteran
-VideoPlays | VideoPlayOrganization | The organization whose web page embedded the video played
- | VideoPlayWhen | The datetime that the video was played
- | VideoPlayService | The service that the video was uploaded to
- | VideoPlayTitle | The title of the video played
- | VideoPlayURL | The URL of the video played
- | VideoPlayStarted | The starting timestamp of the video
- | VideoPlayStopped | The timestamp when the profile stopped watching the video
- | VideoPlayDuration | The total duration of the video in seconds
- | VideoPlayFinished | A flag indicating whether or not the profile finished the video
-VoterRegistrationInteractions | VoterRegistrationInteractionOrganization | The organization that registered the voter
- | VoterRegistrationInteractionWhen | The datetime that the profile was registered to vote
- | VoterRegistrationInteractionParty | The political party that the profile was registered to vote for
- | VoterRegistrationInteractionType | The type of voter registration that the profile filled out
- | VoterRegistrationInteractionPetitionType | The petition type that the profile signed before they were registered to vote
- | VoterRegistrationInteractionLocation | The name of the location or event that the voter registration was filled out at
- | VoterRegistrationInteractionLocationType | The type of location that the voter registration was filled out at
- | VoterRegistrationInteractionTurnedIn | The date that the organization turned in the registration form to the state
- | VoterRegistrationInteractionLead | The collection lead for the voter registration
- | VoterRegistrationInteractionNonStafferCollector | The collector who collected the registration form if not done by the lead
- | VoterRegistrationInteractionRole | The role of the collector
 Votes | VotedWhen | The year that the vote was cast
  | VotedElection | The election type that the profile voted in
  | VotedRegion | The region that the election was held in
