@@ -1,8 +1,8 @@
 ---
-title: Crowdskout API Reference
+title: Crowdskout | API Reference
 
 language_tabs:
-  - shell
+  - http
 
 includes:
   - profile-object
@@ -20,7 +20,7 @@ version 1 of the API and after authenticating, all endpoints reside under `https
 
 The Crowdskout API uses the [OAuth 2.0](https://tools.ietf.org/html/rfc6749) Authorization Code flow for authentication.
 
-## Obtaining a `client_id` and `client_secret`
+## Obtaining a Client ID and Client Secret
 
 Contact your Crowdskout community manager to obtain a `client_id` and `client_secret`, and to provide
 them with a `redirect_uri` for your application.

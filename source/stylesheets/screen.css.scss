@@ -4,6 +4,8 @@
 @import 'icon-font';
 @import 'crowdskout-colors';
 
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+
 /*
 Copyright 2008-2013 Concur Technologies, Inc.
 
@@ -290,7 +292,7 @@ html, body {
   // half of the content always this background color.
   .dark-box {
     width: $examples-width;
-    background-color: $examples-bg;
+    background-color: $mineshaft;
     position: absolute;
     right: 0;
     top: 0;
@@ -300,12 +302,12 @@ html, body {
   .lang-selector {
     position: fixed;
     z-index: 50;
-    border-bottom: 5px solid $lang-select-active-bg;
+    border-bottom: 5px solid $mineshaft;
   }
 }
 
 .lang-selector {
-  background-color: $lang-select-bg;
+  background-color: $mineshaft-dk;
   width: 100%;
   font-weight: bold;
   a {
@@ -323,7 +325,7 @@ html, body {
     }
 
     &.active {
-      background-color: $lang-select-active-bg;
+      background-color: $mineshaft;
       color: $lang-select-active-text;
     }
   }
@@ -356,7 +358,6 @@ html, body {
     padding: 0 $main-padding;
     box-sizing: border-box;
     display: block;
-    text-shadow: $main-embossed-text-shadow;
 
     @extend %left-col;
   }
@@ -372,7 +373,7 @@ html, body {
 
   h1 {
     @extend %header-font;
-    font-size: 30px;
+    font-size: 20px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     border-bottom: 1px solid #ccc;
@@ -380,6 +381,8 @@ html, body {
     margin-top: 2em;
     border-top: 1px solid #ddd;
     background-image: linear-gradient(to bottom, #fff, #f9f9f9);
+    color: $electricblue;
+    text-transform: uppercase;
   }
 
   h1:first-child, div:first-child + h1 {
@@ -389,7 +392,8 @@ html, body {
 
   h2 {
     @extend %header-font;
-    font-size: 20px;
+    font-size: 16px;
+    text-transform: uppercase;
     margin-top: 4em;
     margin-bottom: 0;
     border-top: 1px solid #ccc;
