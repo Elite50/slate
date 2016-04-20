@@ -198,7 +198,7 @@ profile|Yes|The profile to create
 ## Create Many Profiles
 
 ```http
-POST /v1/profile HTTP/1.1
+POST /v1/profile/bulk HTTP/1.1
 Accept: application/json
 Authorization: Bearer abcd1234
 Content-Type: application/json
@@ -355,7 +355,7 @@ profile|Yes|The profile object to update
 ## Update Many Profiles
 
 ```http
-PUT /v1/profile/1 HTTP/1.1
+PUT /v1/profile/bulk HTTP/1.1
 Accept: application/json
 Authorization: Bearer abcd1234
 Content-Type: application/json
