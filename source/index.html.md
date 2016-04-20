@@ -149,11 +149,13 @@ Authorization: Bearer abcd1234
 Content-Type: application/json
 
 {
-  "Names" : [
-    {
-      "FullName" : "Ferdinand Magellan"
-    }
-  ]
+  "profile" : {
+    "Names" : [
+      {
+        "FullName" : "Ferdinand Magellan"
+      }
+    ]
+  }
 }
 ```
 
@@ -201,26 +203,28 @@ Accept: application/json
 Authorization: Bearer abcd1234
 Content-Type: application/json
 
-[
-  {
-    "Genders" : [
-      {
-        "Gender" : {
-          "value" : "Male"
+{
+  "profiles" : [
+    {
+      "Genders" : [
+        {
+          "Gender" : {
+            "value" : "Male"
+          }
         }
-      }
-    ]
-  },
-  {
-    "Genders" : [
-      {
-        "Gender" : {
-          "value" : "Female"
+      ]
+    },
+    {
+      "Genders" : [
+        {
+          "Gender" : {
+            "value" : "Female"
+          }
         }
-      }
-    ]
-  }  
-]
+      ]
+    }  
+  ]
+}
 ```
 
 ```http
@@ -279,21 +283,23 @@ Authorization: Bearer abcd1234
 Content-Type: application/json
 
 {
-  "id" : 1,
-  "Names" : [
-    {
-      "id" : 1,
-      "FirstName" : "Ferdinand"
-    },
-    {
-      "id" : 2,
-      "delete" : true
-    },
-    {
-      "id" : 0,
-      "FullName" : "F Magellan"
-    }
-  ]
+  "profile" : {
+    "id" : 1,
+    "Names" : [
+      {
+        "id" : 1,
+        "FirstName" : "Ferdinand"
+      },
+      {
+        "id" : 2,
+        "delete" : true
+      },
+      {
+        "id" : 0,
+        "FullName" : "F Magellan"
+      }
+    ]
+  }
 }
 ```
 
@@ -354,30 +360,32 @@ Accept: application/json
 Authorization: Bearer abcd1234
 Content-Type: application/json
 
-[
-  {
-    "id" : 1,
-    "Names" : [
-      {
-        "id" : 1,
-        "FirstName" : "Fernão"
-      },
-      {
-        "id" : 3,
-        "delete" : true
-      }
-    ]
-  },
-  {
-    "id" : 2,
-    "Names" : [
-      {
-        "id" : 4,
-        "delete" : true
-      }
-    ]
-  }
-]
+{
+  "profiles" : [
+    {
+      "id" : 1,
+      "Names" : [
+        {
+          "id" : 1,
+          "FirstName" : "Fernão"
+        },
+        {
+          "id" : 3,
+          "delete" : true
+        }
+      ]
+    },
+    {
+      "id" : 2,
+      "Names" : [
+        {
+          "id" : 4,
+          "delete" : true
+        }
+      ]
+    }
+  ]
+}
 ```
 
 ```http
