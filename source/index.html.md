@@ -33,8 +33,8 @@ Direct the user to the following URL for a login form:
 
 Parameter|Required?|Description
 ---------|---------|-----------
-client_id|Yes|The `client_id` provided by your Crowdskout account manager
-redirect_uri|Yes|Where to redirect the user after authorization; must be provided to account manager
+client_id|Yes|The `client_id` provided by your Crowdskout community manager
+redirect_uri|Yes|Where to redirect the user after authorization; must be provided to community manager
 response_type|Yes|Must always be `code`
 state|No|Unique identifier to protect against CSRF
 
@@ -48,15 +48,18 @@ state|The `state` passed as a parameter to the authorization URL, check this aga
 
 ## Obtaining an Access Token
 
->Request
+```http
+POST /oauth/access_token HTTP/1.1
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
 
-```
 client_id=abcd1234&client_secret=abcd1234&code=abcd1234&redirect_uri=http%3A%2F%2Fcrowdskout.com&grant_type=authorization_code
 ```
 
->Response
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-``` json
 {
   "access_token" : "abcd1234",
   "token_type" : "Bearer",
@@ -71,8 +74,8 @@ as **Content-Type: application/x-www-form-urlencoded**:
 
 Parameter|Required?|Description
 ---------|---------|-----------
-client_id|Yes|The `client_id` provided by your Crowdskout account manager
-client_secret|Yes|The `client_secret` provided by your Crowdskout account manager
+client_id|Yes|The `client_id` provided by your Crowdskout community manager
+client_secret|Yes|The `client_secret` provided by your Crowdskout community manager
 code|Yes|The obtained authorization code
 redirect_uri|Yes|Same `redirect_uri`
 grant_type|Yes|Must be `authorization_code`
@@ -89,16 +92,94 @@ These endpoints allow you to retrieve and update profile information in Crowdsko
 
 ## Get a Profile by ID
 
+```http
+GET /v1/profile/1?collections=Names,Genders HTTP/1.1
+Accept: application/json
+Authorization: Bearer abcd1234
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "success" : true,
+  "messages" : [],
+  "data" : {
+    "id" : 1,
+    "Names" : [
+      {
+        "id" : 1,
+        "FullName" : "Mr. Ferdinand Magellan",
+        "NameTitle" : "Mr.",
+        "FirstName" : "Ferdinand",
+        "MiddleName" : null,
+        "LastName" : "Magellan",
+        "NameSuffix" : null
+      }
+    ],
+    "Genders" : [
+      {
+        "id" : 1,
+        "Gender" : {
+          "id" : 1,
+          "value" : "Male"
+        }
+      }
+    ]
+  }
+}
+```
+
 `GET https://api.crowdskout.com/v1/profile/{id}?collections={collections}`
 
 You can retrieve a profile by ID and a comma-delimited list of collections. The profile will be returned as the [Profile Object](#the-profile-object).
 
-Parameter|Required?|Description|Example
----------|---------|-----------|-------
-id|Yes|The profile ID we want to retrieve|`1`
-collections|Yes|A comma-delimited list of collections to include|`Names,EmailAddresses,Ages`
+Parameter|Required?|Description
+---------|---------|-----------
+id|Yes|The profile ID we want to retrieve
+collections|Yes|A comma-delimited list of collections to include
 
 ## Create a Profile
+
+```http
+POST /v1/profile HTTP/1.1
+Accept: application/json
+Authorization: Bearer abcd1234
+Content-Type: application/json
+
+{
+  "Names" : [
+    {
+      "FullName" : "Ferdinand Magellan"
+    }
+  ]
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "success" : true,
+  "messages" : [],
+  "data" : {
+    "id" : 1,
+    "Names" : [
+      {
+        "id" : 1,
+        "FullName" : "Ferdinand Magellan",
+        "NameTitle" : null,
+        "FirstName" : "Ferdinand",
+        "MiddleName" : null,
+        "LastName" : "Magellan",
+        "NameSuffix" : null
+      }
+    ]
+  }
+}
+```
 
 `POST https://api.crowdskout.com/v1/profile`
 
@@ -108,11 +189,75 @@ ignored in the object and all collection items will be created anew. The endpoin
 is provided with insufficient or invalid information, that item will be removed from the collection silently, and the
 rest of the valid data will be saved.
  
-Parameter|Required?|Description|Example
----------|---------|-----------|-------
-profile|Yes|The profile to create|See the [Profile Object](#the-profile-object) documentation
+Parameter|Required?|Description
+---------|---------|-----------
+profile|Yes|The profile to create
 
 ## Create Many Profiles
+
+```http
+POST /v1/profile HTTP/1.1
+Accept: application/json
+Authorization: Bearer abcd1234
+Content-Type: application/json
+
+[
+  {
+    "Genders" : [
+      {
+        "Gender" : {
+          "value" : "Male"
+        }
+      }
+    ]
+  },
+  {
+    "Genders" : [
+      {
+        "Gender" : {
+          "value" : "Female"
+        }
+      }
+    ]
+  }  
+]
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "success" : true,
+  "messages" : [],
+  "data" : [
+    {
+      "id" : 1,
+      "Genders" : [
+        {
+          "id" : 1,
+          "Gender" : {
+            "id" : 1,
+            "value" : "Male"
+          }
+        }
+      ]
+    },
+    {
+      "id" : 2,
+      "Genders" : [
+        {
+          "id" : 2,
+          "Gender" : {
+            "id" : 2,
+            "value" : "Female"
+          }
+        }
+      ]
+    }  
+  ]
+}
+```
 
 `POST https://api.crowdskout.com/v1/profile/bulk`
 
@@ -121,11 +266,69 @@ to the single create endpoint, it ignores all IDs in the request and returns an 
 in with IDs appended to the profile and the collection items. Any invalid items will be silently ignored and not present
 in the response.
 
-Parameter|Required?|Description|Example
----------|---------|-----------|-------
-profiles|Yes|The array of profiles to create|See the [Profile Object](#the-profile-object) documentation
+Parameter|Required?|Description
+---------|---------|-----------
+profiles|Yes|The array of profiles to create
 
 ## Update a Profile by ID
+
+```http
+PUT /v1/profile/1 HTTP/1.1
+Accept: application/json
+Authorization: Bearer abcd1234
+Content-Type: application/json
+
+{
+  "id" : 1,
+  "Names" : [
+    {
+      "id" : 1,
+      "FirstName" : "Ferdinand"
+    },
+    {
+      "id" : 2,
+      "delete" : true
+    },
+    {
+      "id" : 0,
+      "FullName" : "F Magellan"
+    }
+  ]
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "success" : true,
+  "messages" : [],
+  "data" : {
+    "id" : 1,
+    "Names" : [
+      {
+        "id" : 1,
+        "FullName" : "Ferdinand Magellan",
+        "NameTitle" : null,
+        "FirstName" : "Ferdinand",
+        "MiddleName" : null,
+        "LastName" : "Magellan",
+        "NameSuffix" : null
+      },
+      {
+        "id" : 3,
+        "FullName" : "F Magellan",
+        "NameTitle" : null,
+        "FirstName" : "F",
+        "MiddleName" : null,
+        "LastName" : "Magellan",
+        "NameSuffix" : null
+      }
+    ]
+  }
+}
+```
 
 `PUT https://api.crowdskout.com/v1/profile/{id}`
 
@@ -138,12 +341,74 @@ To add an item to a profile, provide the item in the appropriate collection in t
 To delete an item in a collection, provide the item as normal in the collection with an ID, and add `"delete":true` to
 the item. All other fields in that item besides `id` and `delete` will be ignored.
 
-Parameter|Required?|Description|Example
----------|---------|-----------|-------
-id|Yes|The ID of the profile object to update|`1`
-profile|Yes|The profile object to update|See the [Profile Object](#the-profile-object) documentation
+Parameter|Required?|Description
+---------|---------|-----------
+id|Yes|The ID of the profile object to update
+profile|Yes|The profile object to update
 
 ## Update Many Profiles
+
+```http
+PUT /v1/profile/1 HTTP/1.1
+Accept: application/json
+Authorization: Bearer abcd1234
+Content-Type: application/json
+
+[
+  {
+    "id" : 1,
+    "Names" : [
+      {
+        "id" : 1,
+        "FirstName" : "Fernão"
+      },
+      {
+        "id" : 3,
+        "delete" : true
+      }
+    ]
+  },
+  {
+    "id" : 2,
+    "Names" : [
+      {
+        "id" : 4,
+        "delete" : true
+      }
+    ]
+  }
+]
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "success" : true,
+  "messages" : [],
+  "data" : [
+    {
+      "id" : 1,
+      "Names" : [
+        {
+          "id" : 1,
+          "FullName" : "Fernão Magellan",
+          "NameTitle" : null,
+          "FirstName" : "Fernão",
+          "MiddleName" : null,
+          "LastName" : "Magellan",
+          "NameSuffix" : null
+        }
+      ]
+    },
+    {
+      "id" : 2,
+      "Names" : []
+    }
+  ]
+}
+```
 
 `PUT https://api.crowdskout.com/v1/profile/bulk`
 
@@ -156,17 +421,25 @@ To add an item to a profile, provide the item in the appropriate collection in t
 To delete an item in a collection, provide the item as normal in the collection with an ID, and add `"delete":true` to
 the item. All other fields in that item besides `id` and `delete` will be ignored.
 
-Parameter|Required?|Description|Example
----------|---------|-----------|-------
-profile|Yes|The profile objects to update, requires an `id` on each object|See the [Profile Object](#the-profile-object) documentation
+Parameter|Required?|Description
+---------|---------|-----------
+profile|Yes|The profile objects to update, requires an `id` on each object
 
 # Fields
 
 ## Get the Options for a Field
 
->Response
+```http
+GET /v1/fields/AddressCity/options?AddressRegion=1 HTTP/1.1
+Accept: application/json
+Authorization: Bearer abcd1234
+Content-Type: application/json
+```
 
-``` json
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
 {
   "success" : true,
   "messages" : [],
@@ -175,11 +448,7 @@ profile|Yes|The profile objects to update, requires an `id` on each object|See t
     "options" : [
       {
         "id" : 1,
-        "value" : "Chicago"
-      },
-      {
-        "id" : 2,
-        "value" : "Springfield"
+        "value" : "Lisbon"
       }
     ]
   }
@@ -192,74 +461,195 @@ Retrieves all the available options for the provided field. This returns an obje
 the provided field and an array of options. These options are not always an exclusive list and many fields let you
 provide a new value when updating or creating a profile.
 
-Parameter|Required?|Description|Example
----------|---------|-----------|-------
-field|Yes|The name of the field to retrieve options for|`AddressCity`
-dependencyName|No|The field name of the supplied field's parent to filter options|`AddressRegion`
-dependencyId|No|The ID of a value in the `dependencyName` options that we want to filter options on|`14`
+Parameter|Required?|Description
+---------|---------|-----------
+field|Yes|The name of the field to retrieve options for
+dependencyName|No|The field name of the supplied field's parent to filter options
+dependencyId|No|The ID of a value in the `dependencyName` options that we want to filter options on
 
 # Attributes
 
 ## Get All Attributes
 
+```http
+GET /v1/fields/attribute?limit=2&offset=0 HTTP/1.1
+Accept: application/json
+Authorization: Bearer abcd1234
+Content-Type: application/json
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "success" : true,
+  "messages" : [],
+  "data" : {
+    "total": 7,
+    "list": [
+      {
+        "id": 1,
+        "type": "Radio",
+        "locked": false,
+        "name": "Ready to set sail",
+        "options": [
+          {
+            "id": 1,
+            "value": "Yes"
+          },
+          {
+            "id" : 2,
+            "value" : "No"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "type": "Checkbox",
+        "locked": false,
+        "name": "Types of Livestock Owned",
+        "options": [
+          {
+            "id" : 1,
+            "value" : "Sheep"
+          },
+          {
+            "id" : 2,
+            "value" : "Cow"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "type": "Text",
+        "locked": false,
+        "name": "Favorite Island Discovered"
+      },
+      {
+        "id": 4,
+        "type": "Number",
+        "locked": false,
+        "name": "Number of Parakeets Owned"
+      },
+      {
+        "id": 5,
+        "type": "Tag",
+        "locked": true,
+        "name": "Circumnavigated the Globe"
+      },
+      {
+        "id": 6,
+        "type": "Date",
+        "locked": false,
+        "name": "Date Arrived at the Spice Islands"
+      },
+      {
+        "id": 7,
+        "type": "Datetime",
+        "locked": false,
+        "name": "Date and Time Circumnavigated the Globe"
+      }
+    ]
+  }
+}
+```
+
 `GET https://api.crowdskout.com/v1/attribute?limit={limit}&offset={offset}`
 
 Retrieves all of the attributes for the client. An offset and limit can be passed in to page through results.
 
-Parameter|Required?|Description|Example
----------|---------|-----------|-------
-limit|No|The number of attributes to limit our return to|`50`
-offset|No|The number of attributes to skip when fetching attributes|`0`
+Parameter|Required?|Description
+---------|---------|-----------
+limit|No|The number of attributes to limit our return to
+offset|No|The number of attributes to skip when fetching attributes
 
 ## Get an Attribute by ID
 
-`GET https://api.crowdskout.com/v1/attribute/{id}`
-
-Retrieves a single attribute for the client.
-
-Parameter|Required?|Description|Example
----------|---------|-----------|-------
-id|Yes|The ID of the attribute to retrieve|`1`
-
-
-## Create an Attribute
-
-> Request
-
-``` json
-{
-  "name" : "Test Attribute",
-  "type" : "Radio",
-  "options" : [
-    {
-      "value" : "Option 1"
-    },
-    {
-      "value" : "Option 2"
-    }
-  ]
-}
+```http
+GET /v1/attribute/1 HTTP/1.1
+Accept: application/json
+Authorization: Bearer abcd1234
+Content-Type: application/json
 ```
 
-> Response
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-``` json
 {
   "success" : true,
   "messages" : [],
   "data" : {
      "id" : 1,
-     "name" : "Test Attribute",
+     "name" : "Ready to set sail",
      "type" : "Radio",
      "locked" : false,
      "options" : [
        {
          "id" : 1,
-         "value" : "Option 1"
+         "value" : "Yes"
        },
        {
          "id" : 2,
-         "value" : "Option 2"
+         "value" : "No"
+       }
+     ]
+   }
+}
+```
+
+`GET https://api.crowdskout.com/v1/attribute/{id}`
+
+Retrieves a single attribute for the client.
+
+Parameter|Required?|Description
+---------|---------|-----------
+id|Yes|The ID of the attribute to retrieve
+
+
+## Create an Attribute
+
+```http
+POST /v1/attribute HTTP/1.1
+Accept: application/json
+Authorization: Bearer abcd1234
+Content-Type: application/json
+
+{
+  "name" : "Ready to set sail",
+  "type" : "Radio",
+  "options" : [
+    {
+      "value" : "Yes"
+    },
+    {
+      "value" : "No"
+    }
+  ]
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "success" : true,
+  "messages" : [],
+  "data" : {
+     "id" : 1,
+     "name" : "Ready to set sail",
+     "type" : "Radio",
+     "locked" : false,
+     "options" : [
+       {
+         "id" : 1,
+         "value" : "Yes"
+       },
+       {
+         "id" : 2,
+         "value" : "No"
        }
      ]
    }
@@ -270,56 +660,62 @@ id|Yes|The ID of the attribute to retrieve|`1`
 
 Creates an attribute for the client. Takes a number of parameters in the body of the request.
 
-Parameter|Required?|Description|Example
----------|---------|-----------|-------
-name|Yes|The name of the attribute we're creating|`Test Attribute`
-type|Yes|The type of attribute we're creating|Must be one of: `Radio`, `Checkbox`, `Text`, `Number`, `Tag`, `Date`, `Datetime`
-options|Sometimes|An array of options for the attribute, required if the supplied type is `Radio` or `Checkbox`|See sidebar
+Parameter|Required?|Description
+---------|---------|-----------
+name|Yes|The name of the attribute we're creating
+type|Yes|The type of attribute we're creating, must be one of: `Radio`, `Checkbox`, `Text`, `Number`, `Tag`, `Date`, `Datetime`
+options|Sometimes|An array of options for the attribute, required if the supplied type is `Radio` or `Checkbox`
 
 ## Update an Attribute
 
 > Request
 
-``` json
+```http
+PUT /v1/attribute/1 HTTP/1.1
+Accept: application/json
+Authorization: Bearer abcd1234
+Content-Type: application/json
+
 {
-  "name" : "Test Attribute 2",
+  "name" : "Ready to set sail",
   "options" : [
     {
       "id" : 1,
-      "value" : "Option 3"
+      "value" : "Yes"
     },
     {
       "id" : 2,
       "delete" : true,
-      "value" : "Option 2"
+      "value" : "No"
     },
     {
       "id" : 0,
-      "value" : "Option 4"
+      "value" : "Not Quite"
     }
   ]
 }
 ```
 
-> Response
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
 
-``` json
 {
   "success" : true,
   "messages" : [],
   "data" : {
     "id" : 1,
-    "name" : "Test Attribute 2",
+    "name" : "Ready to set sail",
     "type" : "Radio",
     "locked" : false,
     "options" : [
       {
         "id" : 1,
-        "value" : "Option 3"
+        "value" : "Yes"
       },
       {
         "id" : 3,
-        "value" : "Option 4"
+        "value" : "Not Quite"
       }
     ]
   }
@@ -332,16 +728,24 @@ Updates an attribute for the client with the provided ID. Takes a number of para
 type of an attribute cannot be changed. In the options array provided, any options with an ID will have their value
 updated. Any options with `"id" : 0` or no `id` field will be added. Any options with `"delete" : true` will be deleted.
 
-Parameter|Required?|Description|Example
----------|---------|-----------|-------
-name|No|The name we want to set the attribute to|`Test Attribute 2`
-options|No|A set of options we want to update|See sidebar
+Parameter|Required?|Description
+---------|---------|-----------
+name|No|The name we want to set the attribute to
+options|No|A set of options we want to update
 
 ## Delete an Attribute
 
->Response
+```http
+DELETE /v1/attribute/1 HTTP/1.1
+Accept: application/json
+Authorization: Bearer abcd1234
+Content-Type: application/json
+```
 
-``` json
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
 {
   "success" : true,
   "messages" : [],
@@ -353,6 +757,6 @@ options|No|A set of options we want to update|See sidebar
 
 Deletes an attribute with the provided ID.
 
-Parameter|Required?|Description|Example
----------|---------|-----------|-------
-id|Yes|The ID of the attribute to delete|`1`
+Parameter|Required?|Description
+---------|---------|-----------
+id|Yes|The ID of the attribute to delete
