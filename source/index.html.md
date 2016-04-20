@@ -22,7 +22,7 @@ The Crowdskout API uses the [OAuth 2.0](https://tools.ietf.org/html/rfc6749) Aut
 
 ## Obtaining a Client ID and Client Secret
 
-Contact your Crowdskout community manager to obtain a `client_id` and `client_secret`, and to provide
+Contact a Crowdskout community manager to obtain a `client_id` and `client_secret`, and to provide
 them with a `redirect_uri` for your application.
 
 ## Obtaining an Authorization Code
@@ -33,8 +33,8 @@ Direct the user to the following URL for a login form:
 
 Parameter|Required?|Description
 ---------|---------|-----------
-client_id|Yes|The `client_id` provided by your Crowdskout community manager
-redirect_uri|Yes|Where to redirect the user after authorization; must be provided to community manager
+client_id|Yes|The `client_id` provided by a community manager
+redirect_uri|Yes|Where to redirect the user after authorization; must be the same as you provided to a community manager
 response_type|Yes|Must always be `code`
 state|No|Unique identifier to protect against CSRF
 
@@ -74,8 +74,8 @@ as **Content-Type: application/x-www-form-urlencoded**:
 
 Parameter|Required?|Description
 ---------|---------|-----------
-client_id|Yes|The `client_id` provided by your Crowdskout community manager
-client_secret|Yes|The `client_secret` provided by your Crowdskout community manager
+client_id|Yes|The `client_id` provided by a community manager
+client_secret|Yes|The `client_secret` provided by a community manager
 code|Yes|The obtained authorization code
 redirect_uri|Yes|Same `redirect_uri`
 grant_type|Yes|Must be `authorization_code`
