@@ -768,7 +768,7 @@ null | A *Field* without a *Value*
       },
       "OneOnOneUser" : {
         "id": 1,
-        "value": "Dan Fey"
+        "value": "Ferdinand Magellan"
       },
       "OneOnOneRncRole": {
         "id": "rli-fellow",
@@ -785,6 +785,10 @@ null | A *Field* without a *Value*
         "Received Adequate Previous Attention": "Yes",
         "Would Participate Again": "Yes",
         "Feedback on Organization Previously": "The organization was extremely efficient"
+      },
+      "OneOnOneCollectionLead" : {
+        "id" : 2,
+        "value" : "King Manuel"
       }
     }
   ],
@@ -1103,6 +1107,7 @@ OneOnOnes | OneOnOneOrganization | The organization that held the one on one wit
  | OneOnOneHardAskAnswer | The answer given if the one on one contained a hard ask
  | OneOnOnePreviousContactDatetime | The datetime that the last previous contact occurred with the profile before this one on one
  | OneOnOneAnswerArray | A key-value object of answers to questions during the one on one
+ | OneOnOneCollectionLead | A poser object of the user who led the collection of this one on one, may be the same as OneOnOneUser
 PageViews | PageViewOrganization | The organization that controlled the page that was viewed by the profile
  | PageViewWhen | The datetime that the page view occurred
  | PageViewImage | An image associated with the page viewed
