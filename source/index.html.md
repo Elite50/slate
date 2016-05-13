@@ -480,7 +480,7 @@ dependencyId|No|The ID of a value in the `dependencyName` options that we want t
 ## Get All Attributes
 
 ```http
-GET /v1/fields/attribute?limit=2&offset=0 HTTP/1.1
+GET /v1/attribute?limit=2&offset=0 HTTP/1.1
 Accept: application/json
 Authorization: Bearer abcd1234
 Content-Type: application/json
