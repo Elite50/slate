@@ -941,6 +941,58 @@ null | A *Field* without a *Value*
       }
     }
   ],
+ "Submissions" : [
+    {
+      "id" : "398de1a7-e234-4a4c-b10c-86f2b2bd351d",
+      "SubmissionOrganization" : {
+        "id" : 1,
+        "value" : "Modern Notion"
+      },
+      "SubmissionWhen" : "2012-01-25T12:00:00.000Z",
+      "SubmissionUser" : {
+        "id" : 1,
+        "service" : "crowdskout",
+        "value" : "George Yates"
+      },
+      "SubmissionForm" : {
+        "id" : 5,
+        "value" : "Test Form"
+      },
+      "SubmissionFormType": {
+        "id" : "quiz",
+        "value" : "Quiz"
+      },
+      "SubmissionFormSubTypes" : [
+        "Checklist"
+      ],
+      "SubmissionResponses" : [
+        {
+          "Question" : {
+            "id" : "whats-your-favorite-color",
+            "value" : "What's your favorite color?"
+          },
+          "Answers" : [
+            {
+              "id" : 1,
+              "value" : "Blue"
+            }
+          ]
+        },
+        {
+          "Question" : {
+            "id" : "email",
+            "value" : "Email"
+          },
+          "Answers" : [
+            {
+              "id" : "george@crowdskout.com",
+              "value" : "george@crowdskout.com"
+            }
+          ]
+        }
+      ]
+    }
+  ],  
   "Veterans" : [
     {
       "id" : 1,
@@ -1176,6 +1228,13 @@ PoliticalOrientationScores | PoliticalOrientationScore | A numeric value of the 
  | PoliticalOrientationScoreLabel | A text value of the way a profile is politically oriented
 Religions | Religion | The religion of the profile
 Students | Student | A flag indicating whether or not the profile is a student
+Submissions | SubmissionOrganization | The organization whose form was submitted
+ | SubmissionWhen | The datetime when the form was submitted
+ | SubmissionForm | The form that was submitted
+ | SubmissionFormType | The specific type of form that was submitted
+ | SubmissionFormSubTypes | An array of sub-types that the form belongs to
+ | SubmissionResponses | An array of question and answers objects that represent all the fields in the submission
+ | SubmissionUser | The Crowdskout user who collected or entered the form submission 
 Veterans | Veteran | A flag indicating whether or not the profile is a veteran
 Votes | VotedWhen | The year that the vote was cast
  | VotedElection | The election type that the profile voted in
