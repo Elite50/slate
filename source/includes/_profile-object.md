@@ -857,6 +857,10 @@ null | A *Field* without a *Value*
         "value" : "Picked Up"
       },
       "PhoneCallLength" : 12,
+      "PhoneCallUser" : {
+        "id" : 1,
+        "value" : "George Yates"
+      },
       "PhoneCallType" : {
         "id" : "robocall",
         "value" : "Robocall"
@@ -1207,6 +1211,7 @@ PhoneCalls | PhoneCallOrganization | The organization that the phone call was pl
  | PhoneCallNumber | The phone number that was called
  | PhoneCallResult | The result of the phone call placed
  | PhoneCallLength | The length of the phone call in seconds
+ | PhoneCallUser | The Crowdskout user who placed the phone call
  | PhoneCallType | The type of phone call
 PhoneNumbers | PhoneNumber | The phone number for the profile
  | PhoneType | The type of phone that the number reaches
