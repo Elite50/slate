@@ -809,7 +809,23 @@ null | A *Field* without a *Value*
           "id" :1,
           "value" : "Sports"
         }
-      ]
+      ],
+      "PageViewUTMSources": [
+        "local"
+      ],
+      "PageViewUTMMediums": [
+        "postman"
+      ],
+      "PageViewUTMContents": [
+        "test"
+      ],
+      "PageViewUTMCampaigns": [
+        "testCampaign"
+      ],
+      "PageViewUTMTerms": [
+        "testTerm",
+        "testTerm2"
+      ]     
     }
   ],
   "PetitionSignatures" : [
@@ -1198,6 +1214,11 @@ PageViews | PageViewOrganization | The organization that controlled the page tha
  | PageViewPageTitle | The title of the page that was viewed
  | PageViewPageDescription | The description of the page that was viewed
  | PageViewPageTopics | An array of topics attached to the page viewed
+ | PageViewUTMSources | An array of UTM sources as indicated by UTM tags on the URL
+ | PageViewUTMMediums | An array of UTM mediums as indicated by UTM tags on the URL
+ | PageViewUTMContents | An array of UTM contents as indicated by UTM tags on the URL
+ | PageViewUTMCampaigns | An array of UTM campaigns as indicated by UTM tags on the URL
+ | PageViewUTMTerms | An array of UTM terms as indicated by UTM tags on the URL
 PetitionSignatures | PetitionSignatureOrganization | The organization that collected the petition signature
  | PetitionSignatureWhen | The datetime that the petition was signed
  | PetitionSignatureType | The type of petition that was signed
