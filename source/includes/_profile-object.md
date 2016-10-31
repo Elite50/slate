@@ -150,6 +150,16 @@ null | A *Field* without a *Value*
       "CrowdskoutScoreLabel" : "Moderately Engaged"
     }
   ],
+  "DeceasedRecords": [
+    {
+      "id": 1,
+      "DeceasedFlag": {
+        "id": "no",
+        "value": "No"
+      },
+      "DateOfDeath": "2016-01-01"
+    }
+  ],  
   "DistrictCensusBlockGroups" : [
     {
       "id" : 1,
@@ -434,7 +444,7 @@ null | A *Field* without a *Value*
       "id" : "ebe43c2f-c0db-4820-a370-f1210c120aea",
       "DonationOrganization" : {
         "id" : 1,
-        "value" : "Modern Notion"
+        "value" : "Crowdskout"
       },
       "DonationWhen" : "2014-01-01T12:00:00+00",
       "DonationAmount" : 100.00,
@@ -511,6 +521,29 @@ null | A *Field* without a *Value*
       }
     }
   ],
+  "EventAttendances": [
+    {
+      "id": "c83c4d8c-b0f7-44b8-ad4b-f0df740e99e0",
+      "EventAttendanceOrganization": {
+        "id": 1,
+        "value": "Crowdskout"
+      },
+      "EventAttendanceWhen": "2016-01-01T12:00:00Z",
+      "EventAttendanceParent": {
+        "id": "c7fe325d-7360-4e49-aa0e-7848dffb534a",
+        "collection": "EventRegistrations"
+      },
+      "EventAttendanceType": {
+        "id": "general-meeting",
+        "value": "General Meeting"
+      },
+      "EventAttendanceCollector": {
+        "id": 1,
+        "value": "Will Durney"
+      },
+      "EventAttendanceEventName": "Kamp Crowdskout"
+    }
+  ],  
   "ExternalIDs" : [
     {
       "id" : 1,
@@ -544,7 +577,8 @@ null | A *Field* without a *Value*
       "HeadOfHousehold" : {
         "id" : "no",
         "value" : "No"
-      }
+      },
+      "HouseholdID" : "abcd1234"
     }
   ],
   "Images" : [
@@ -617,7 +651,7 @@ null | A *Field* without a *Value*
       "id" : "f13d1056-bdf3-4096-8f2f-3a413f580990",
       "KnockOrganization" : {
         "id" : 1,
-        "value" : "Modern Notion"
+        "value" : "Crowdskout"
       },
       "KnockWhen" : "2012-01-25T12:00:00+00",
       "KnockState" : {
@@ -679,6 +713,31 @@ null | A *Field* without a *Value*
         "id" : 1,
         "value" : "Single"
       }
+    }
+  ],
+  "Meetings" : [
+    {
+      "id": "03c98aee-1cd7-4dbf-9406-271550d65c08",
+      "MeetingWhen": "2014-12-15T12:00:00Z",
+      "MeetingOrganization": {
+        "id": 1,
+        "value": "Crowdskout"
+      },
+      "MeetingParent": {
+        "id": "4be31147-50c9-46ae-9315-f16bd1bd4511",
+        "collection": "PhoneCalls"
+      },
+      "MeetingUser": {
+        "id": 1,
+        "value": "George Yates"
+      },
+      "MeetingType": {
+        "id": "general",
+        "value": "General"
+      },
+      "MeetingPurpose": "To establish what they hope to use Crowdskout for",
+      "MeetingLocation": "Crowdskout's Office",
+      "MeetingNotes": "Seemed very excited about Crowdskout, looking forward to meeting with Greg Anderson - their decision maker"
     }
   ],
   "Memberships" : [
@@ -759,7 +818,7 @@ null | A *Field* without a *Value*
       "id" : "ec41abe4-ecb9-469f-b0ce-345d57d8e356",
       "OneOnOneOrganization": {
         "id": 1,
-        "value": "Modern Notion"
+        "value": "Crowdskout"
       },
       "OneOnOneWhen": "2014-12-15T12:00:00Z",
       "OneOnOneType": {
@@ -797,7 +856,7 @@ null | A *Field* without a *Value*
       "id" : "360045ee-a5d0-477e-9b5a-1d545a66c848",
       "PageViewOrganization" : {
         "id" : 1,
-        "value" : "Modern Notion"
+        "value" : "Crowdskout"
       },
       "PageViewWhen" : "2012-01-25T12:00:00+00",
       "PageViewImage" : "http://www.thewrap.com/sites/default/files/original_1.jpg",
@@ -833,7 +892,7 @@ null | A *Field* without a *Value*
       "id" : "8586a40d-01be-4bb3-b01b-756ad5954ee7",
       "PetitionSignatureOrganization" : {
         "id" : 1,
-        "value" : "Modern Notion"
+        "value" : "Crowdskout"
       },
       "PetitionSignatureWhen" : "2015-01-01T12:00:00+00",
       "PetitionSignatureType" : {
@@ -860,14 +919,14 @@ null | A *Field* without a *Value*
       "id" : "360045ee-a5d0-477e-9b5a-1d545a66c848",
       "PhoneCallOrganization" : {
         "id" : 1,
-        "value" : "Modern Notion"
+        "value" : "Crowdskout"
       },
       "PhoneCallWhen" : "2014-12-15T12:00:00+00",
       "PhoneCallPhoneCalling" : {
         "id" : "robocalls-for-greatness",
         "value" : "Robocalls for Greatness"
       },
-      "PhoneCallNumber" : "7734708486",
+      "PhoneCallNumber" : "+17735551234",
       "PhoneCallResult" : {
         "id" : "picked-up",
         "value" : "Picked Up"
@@ -886,7 +945,7 @@ null | A *Field* without a *Value*
   "PhoneNumbers" : [
     {
       "id" : 1,
-      "PhoneNumber" : "7734708486",
+      "PhoneNumber" : "+17735551234",
       "PhoneType" : {
         "id" : 1,
         "value" : "Cell"
@@ -904,7 +963,7 @@ null | A *Field* without a *Value*
   "PhysicalAddresses" : [
     {
       "id" : 1,
-      "Address1" : "5532 S. Dorchester Ave.",
+      "Address1" : "1812 Fake St.",
       "Address2" : "Suite 500",
       "Address3" : null,
       "AddressCity" : {
@@ -966,7 +1025,7 @@ null | A *Field* without a *Value*
       "id" : "398de1a7-e234-4a4c-b10c-86f2b2bd351d",
       "SubmissionOrganization" : {
         "id" : 1,
-        "value" : "Modern Notion"
+        "value" : "Crowdskout"
       },
       "SubmissionWhen" : "2012-01-25T12:00:00.000Z",
       "SubmissionUser" : {
@@ -1012,7 +1071,42 @@ null | A *Field* without a *Value*
         }
       ]
     }
-  ],  
+  ],
+  "Texts": [
+    {
+      "id": "9ef8c592-f2fd-4273-ad1e-b18f5b83cf85",
+      "TextWhen": "2014-12-15T12:00:00Z",
+      "TextOrganization": {
+        "id": 1,
+        "value": "Crowdskout"
+      },
+      "TextParent": {
+        "id": "d420ebd7-894b-449c-b92a-1d3aa62ea8d2",
+        "collection": "Submissions"
+      },
+      "TextUser": {
+        "id": 1,
+        "value": "George Yates"
+      },
+      "TextContent": "Hello! Would you like to learn more about Crowdskout?",
+      "PhoneNumberTextSentTo": "+17735551234",
+      "PhoneNumberTextSentFrom": "+17735551235",
+      "TextPhoneCarrier": "Verizon",
+      "TextDelivered": {
+        "id": "yes",
+        "value": "Yes"
+      },
+      "TextRead": {
+        "id": "yes",
+        "value": "Yes"
+      },
+      "TextReplied": {
+        "id": "yes",
+        "value": "Yes"
+      },
+      "TextReplyContent": "YES!"
+    }
+  ],
   "Veterans" : [
     {
       "id" : 1,
@@ -1093,6 +1187,8 @@ Children | ChildAge | The age of the child this profile has
  | ChildGender | The gender of the child this profile has
 CrowdskoutScores | CrowdskoutScore | A numeric representation of the level of engagement of the profile with the client
  | CrowdskoutScoreLabel | A string representation of the level of engagement
+DeceasedRecords | DeceasedFlag | A boolean flag indicating whether or not the profile is deceased
+ | DateOfDeath | If the person is deceased, the date of their death
 DistrictCensusBlockGroups | DistrictCensusBlockGroup | The name of the census block group that the profile resides in
 DistrictCensusTracts | DistrictCensusTract | The name of the census tract that the profile resides in
 DistrictCities | DistrictCity | The name of the city district that the profile resides in
@@ -1143,10 +1239,17 @@ EmailAddresses | Email | An email address for the profile
  | EmailContact | The contact type of the email address
  | EmailUsable | Whether or not the email is usable
 Ethnicities | Ethnicity | The ethnicity of the profile
+EventAttendances | EventAttendanceOrganization | The Organization who threw the event this profile attended
+ | EventAttendanceWhen | The date and time that the profile attended the event
+ | EventAttendanceParent | A reference to a parent interaction for this event attendance, such as an event registration
+ | EventAttendanceType | The type of event attended
+ | EventAttendanceCollector | The user who collected this event attendance record
+ | EventAttendanceEventName | The name of the event attended
 ExternalIDs | ExternalID | The value of the external ID
  | ExternalIDType | The type of the external ID
 Genders | Gender | The gender of the profile
 Households | HeadOfHousehold | A flag indicating whether the profile is the head of the household
+ | HouseholdID | The ID of the household this profile belongs to
 Images | Image | A URL to a photo of the profile
 Incomes | Income | The annual income of the profile
 Interests | Interest | The name of an interest that the profile has been tagged with
@@ -1173,6 +1276,14 @@ LegislationPositions | LegislationPositionDateTaken | When the profile took this
  | LegislationPositionLegislationDistrict | The political district that the legislation was introduced in
  | LegislationPositionGovernmentBodies | The governmental body that the legislation is being considered in
 MaritalStatuses | MaritalStatus | The marital status of the profile
+Meetings | MeetingWhen | The date and time the meeting occurred
+ | MeetingOrganization | The organization that had the meeting with the profile
+ | MeetingParent | The parent interaction that led to this meeting, such as a phone call
+ | MeetingUser | The person who had the meeting with the profile
+ | MeetingType | The type of meeting had
+ | MeetingPurpose | The purpose of the meeting
+ | MeetingLocation | The location of the meeting
+ | MeetingNotes | General text notes of the meeting
 Memberships | MemberOrganization | The organization that the profile has a membership to
  | MemberActive | A flag indicating whether the profile is an active member of the organization
  | MemberTitle | The title of the membership level of the profile
@@ -1260,7 +1371,19 @@ Submissions | SubmissionOrganization | The organization whose form was submitted
  | SubmissionFormType | The specific type of form that was submitted
  | SubmissionFormSubTypes | An array of sub-types that the form belongs to
  | SubmissionResponses | An array of question and answers objects that represent all the fields in the submission
- | SubmissionUser | The Crowdskout user who collected or entered the form submission 
+ | SubmissionUser | The Crowdskout user who collected or entered the form submission
+Texts | TextWhen | The date and time the profile was texted
+ | TextOrganization | The organization who texted the profile
+ | TextParent | The parent interaction that led to this text
+ | TextUser | The user who texted the profile
+ | TextContent | The content of the text message
+ | PhoneNumberTextSentTo | The phone number that was texted
+ | PhoneNumberTextSentFrom | The phone number that the text was sent from
+ | TextPhoneCarrier | The carrier of the phone number sent to
+ | TextDelivered | A flag indicating whether or not the text was delivered
+ | TextRead | A flag indicating whether or not the text was read
+ | TextReplied | A flag indicating whether or not the profile replied to the text
+ | TextReplyContent | If the profile replied to the text, the content of their reply
 Veterans | Veteran | A flag indicating whether or not the profile is a veteran
 Votes | VotedWhen | The year that the vote was cast
  | VotedElection | The election type that the profile voted in
