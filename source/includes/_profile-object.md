@@ -462,7 +462,12 @@ null | A *Field* without a *Value*
       "DonationCollectionMethod" : {
         "id" : "event",
         "value" : "Event"
-      }
+      },
+      "DonationRecurring" : {
+        "id" : "no",
+        "value" : "No"
+      },
+      "DonationSourceCode" : "I-230"
     }
   ],
   "Dwellings" : [
@@ -1104,7 +1109,11 @@ null | A *Field* without a *Value*
         "id": "yes",
         "value": "Yes"
       },
-      "TextReplyContent": "YES!"
+      "TextReplyContent": "YES!",
+      "TextCampaign": {
+        "id": 10,
+        "value": "Potential Crowdskout Customers"
+      }
     }
   ],
   "Veterans" : [
@@ -1251,6 +1260,8 @@ Donations | DonationOrganization | The organization that the donation was made t
  | DonationCampaign | The donor campaign that the donation was collected under
  | DonationPaidWith | The method that the donation was paid with
  | DonationCollectionMethod | How the donation was collection, at an event, online, etc.
+ | DonationRecurring | A flag indicating whether or not the donation is a part of a recurring donation
+ | DonationSourceCode | A text value that stores a free form source code for the donation
 Dwellings | DwellingType | The type of dwelling that the profile lives in
  | OwnRent | Whether the profile owns or rents the dwelling
  | DwellingEstimatedValue | The estimated value of the dwelling the profile lives in
@@ -1408,6 +1419,7 @@ Texts | TextWhen | The date and time the profile was texted
  | TextRead | A flag indicating whether or not the text was read
  | TextReplied | A flag indicating whether or not the profile replied to the text
  | TextReplyContent | If the profile replied to the text, the content of their reply
+ | TextCampaign | An object for the particular campaign this text was sent during
 Veterans | Veteran | A flag indicating whether or not the profile is a veteran
 Votes | VotedWhen | The year that the vote was cast
  | VotedElection | The election type that the profile voted in
