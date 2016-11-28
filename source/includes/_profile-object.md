@@ -1020,7 +1020,7 @@ null | A *Field* without a *Value*
       }
     }
   ],
- "Submissions" : [
+  "Submissions" : [
     {
       "id" : "398de1a7-e234-4a4c-b10c-86f2b2bd351d",
       "SubmissionOrganization" : {
@@ -1169,6 +1169,30 @@ null | A *Field* without a *Value*
         "value" : "Unknown"
       },
       "VotedPrimaryParty" : null
+    }
+  ],
+  "VoterRegistrations" : [
+    {
+      "id" : 1,
+      "Registered" : {
+        "id": "yes",
+        "value": "Yes"
+      },
+      "StateVoterID" : "abcdjkl123",
+      "CountyVoterID" : "abdhwjdw",
+      "VoterRegistrationDate" : "2014-08-14T12:00:00.000Z",
+      "VoterRegistrationParty" : {
+        "id" : 1,
+        "value" : "Democrat"
+      },
+      "VoterRegistrationRegion" : {
+        "id" : 1
+        "value" : "Illinois"
+      },
+      "VoterRegistrationVoterStatus" : {
+        "id" : 1,
+        "value" : "Active"
+      }
     }
   ]
 }
@@ -1392,3 +1416,10 @@ Votes | VotedWhen | The year that the vote was cast
  | VotedEarly | An object representing whether or not the profile voted early
  | VotedAbsentee | An object representing whether or not the profile voted absentee
  | VotedPrimaryParty | The primary party ballot the profile used
+VoterRegistrations | Registered | A flag indicating whether or not a profile is registered
+ | StateVoterID | A text value for the voter ID supplied by the state
+ | CountyVoterID | A text value for the voter ID supplied by the county
+ | VoterRegistrationDate | The date the voter originally registered to vote
+ | VoterRegistrationParty | The political party that the profile registered under
+ | VoterRegistrationRegion | The region or state the person is registered in
+ | VoterRegistrationVoterStatus | The registration status of the profile
