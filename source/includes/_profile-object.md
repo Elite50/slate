@@ -1195,7 +1195,7 @@ null | A *Field* without a *Value*
         "value" : "Democrat"
       },
       "VoterRegistrationRegion" : {
-        "id" : 1
+        "id" : 1,
         "value" : "Illinois"
       },
       "VoterRegistrationVoterStatus" : {
