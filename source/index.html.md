@@ -433,6 +433,54 @@ Parameter|Required?|Description
 ---------|---------|-----------
 profile|Yes|The profile objects to update, requires an `id` on each object
 
+## Check for a non-match against a profile object
+
+```http
+POST /v1/profile/1/non-match-check HTTP/1.1
+Accept: application/json
+Authorization: Bearer abcd1234
+Content-Type: application/json
+
+{
+  "profile" : {
+    "Names" : [
+      {
+        "FirstName" : "Fernão"
+      }
+    ],
+    "EmailAddresses" : [
+      "Email" : "fernao@circumnavigation.net"
+    ]
+  }
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "success" : true,
+  "messages" : [],
+  "data" : true
+}
+```
+
+`POST https://api.crowdskout.com/v1/profile/{id}/non-match-check`
+
+You can check if a supplied profile object definitely is not the same profile as the supplied profile ID. This endpoint
+can be a little confusing, because its purpose is to determine a definite non-match, but does not necessarily indicate a match.
+ 
+The use of this endpoint is for situations when you have a profile object you think belongs to a profile ID, but cannot be sure.
+By running the non-match check, you can avoid situations where you're adding new people to existing profile records of
+different people.
+
+**The endpoint returns `true` if the supplied profile is definitely not a match, and returns `false` otherwise.** 
+
+Parameter|Required?|Description
+---------|---------|-----------
+profile|Yes|The [Profile Object](#the-profile-object) to check against
+
 # Fields
 
 ## Get the Options for a Field
