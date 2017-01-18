@@ -433,7 +433,7 @@ Parameter|Required?|Description
 ---------|---------|-----------
 profile|Yes|The profile objects to update, requires an `id` on each object
 
-## Check for a non-match against a profile object
+## Check for a Non-Match
 
 ```http
 POST /v1/profile/1/non-match-check HTTP/1.1
@@ -449,7 +449,9 @@ Content-Type: application/json
       }
     ],
     "EmailAddresses" : [
-      "Email" : "fernao@circumnavigation.net"
+      {
+        "Email" : "fernao@circumnavigation.net"
+      }
     ]
   }
 }
