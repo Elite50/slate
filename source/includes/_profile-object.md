@@ -447,6 +447,10 @@ null | A *Field* without a *Value*
         "value" : "Crowdskout"
       },
       "DonationWhen" : "2014-01-01T12:00:00+00",
+      "DonationParent" : {
+        "id" : "abcd-abcd-abcd-abcd",
+        "collection" : "PageViews"
+      },
       "DonationAmount" : 100.00,
       "DonationExternalID" : "jwalkV-adwkj",
       "DonationCampaign":  {
@@ -467,7 +471,8 @@ null | A *Field* without a *Value*
         "id" : "no",
         "value" : "No"
       },
-      "DonationSourceCode" : "I-230"
+      "DonationSourceCode" : "I-230",
+      "DonationSubscriptionID" : "abcd1234"
     }
   ],
   "Dwellings" : [
@@ -1255,6 +1260,7 @@ DistrictWaters | DistrictWater | The name of the water district that the profile
 DistrictWatersheds | DistrictWatershed | The name of the watershed district that the profile resides in
 Donations | DonationOrganization | The organization that the donation was made to
  | DonationWhen | The datetime that the donation was made
+ | DonationParent | A parent interaction that caused this donation
  | DonationAmount | The dollar amount that the donation was for
  | DonationExternalID | The external ID of the donation in an external service
  | DonationCampaign | The donor campaign that the donation was collected under
@@ -1262,6 +1268,7 @@ Donations | DonationOrganization | The organization that the donation was made t
  | DonationCollectionMethod | How the donation was collection, at an event, online, etc.
  | DonationRecurring | A flag indicating whether or not the donation is a part of a recurring donation
  | DonationSourceCode | A text value that stores a free form source code for the donation
+ | DonationSubscriptionID | A unique identifier for the recurring subscription this donation belongs to
 Dwellings | DwellingType | The type of dwelling that the profile lives in
  | OwnRent | Whether the profile owns or rents the dwelling
  | DwellingEstimatedValue | The estimated value of the dwelling the profile lives in
