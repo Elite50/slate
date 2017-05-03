@@ -1022,6 +1022,18 @@ null | A *Field* without a *Value*
       }
     }
   ],
+  "SocialMediaAccounts" : [
+    {
+      "id" : 1,
+      "SocialMediaNetwork" : {
+        "id" : 1,
+        "value" : "Facebook"
+      },
+      "SocialMediaID" : "2224499227766416",
+      "SocialMediaNickname" : "fmagellan",
+      "SocialMediaURL" : "https://facebook.com/ferdinand"
+    }
+  ],
   "Students" : [
     {
       "id" : 1,
@@ -1408,6 +1420,10 @@ PhoneAddresses | Address1 | The first line of the address where the profile live
 PoliticalOrientationScores | PoliticalOrientationScore | A numeric value of the intensity of political orientation
  | PoliticalOrientationScoreLabel | A text value of the way a profile is politically oriented
 Religions | Religion | The religion of the profile
+SocialMediaAccounts | SocialMediaNetwork | The social media network this profile has an account in
+ | SocialMediaID | The ID of the profile's account in the network
+ | SocialMediaNickname | The nickname of the profile's account in the network
+ | SocialMediaURL | The URL of the profile's account in the network
 Students | Student | A flag indicating whether or not the profile is a student
 Submissions | SubmissionOrganization | The organization whose form was submitted
  | SubmissionWhen | The datetime when the form was submitted
