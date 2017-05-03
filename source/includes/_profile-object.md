@@ -453,6 +453,8 @@ null | A *Field* without a *Value*
       },
       "DonationAmount" : 100.00,
       "DonationExternalID" : "jwalkV-adwkj",
+      "DonationBundlerID" : "abhjdwa-dwjak",
+      "DonationSubscriptionID" : "abcd1234"
       "DonationCampaign":  {
         "id" : "donor-perfect1",
         "externalId" : 1,
@@ -472,7 +474,6 @@ null | A *Field* without a *Value*
         "value" : "No"
       },
       "DonationSourceCode" : "I-230",
-      "DonationSubscriptionID" : "abcd1234"
     }
   ],
   "Dwellings" : [
@@ -1263,12 +1264,13 @@ Donations | DonationOrganization | The organization that the donation was made t
  | DonationParent | A parent interaction that caused this donation
  | DonationAmount | The dollar amount that the donation was for
  | DonationExternalID | The external ID of the donation in an external service
+ | DonationBundlerID | The ID of a bundler associated with this donation
+ | DonationSubscriptionID | A unique identifier for the recurring subscription this donation belongs to
  | DonationCampaign | The donor campaign that the donation was collected under
  | DonationPaidWith | The method that the donation was paid with
  | DonationCollectionMethod | How the donation was collection, at an event, online, etc.
  | DonationRecurring | A flag indicating whether or not the donation is a part of a recurring donation
  | DonationSourceCode | A text value that stores a free form source code for the donation
- | DonationSubscriptionID | A unique identifier for the recurring subscription this donation belongs to
 Dwellings | DwellingType | The type of dwelling that the profile lives in
  | OwnRent | Whether the profile owns or rents the dwelling
  | DwellingEstimatedValue | The estimated value of the dwelling the profile lives in
