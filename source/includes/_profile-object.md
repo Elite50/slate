@@ -657,6 +657,15 @@ null | A *Field* without a *Value*
       }
     }
   ],
+  "Languages" : [
+    {
+      "id" : 1,
+      "Language" : {
+        "id" : 1,
+        "value" : "English"
+      }
+    }
+  ],
   "Knocks" : [
     {
       "id" : "f13d1056-bdf3-4096-8f2f-3a413f580990",
@@ -870,6 +879,10 @@ null | A *Field* without a *Value*
         "value" : "Crowdskout"
       },
       "PageViewWhen" : "2012-01-25T12:00:00+00",
+      "PageViewPlatform" : {
+        "id" : "desktop",
+        "value" : "Desktop"
+      },
       "PageViewImage" : "http://www.thewrap.com/sites/default/files/original_1.jpg",
       "PageViewURL" : "http://www.google.com",
       "PageViewPageTitle" : "Google",
@@ -1324,6 +1337,7 @@ Knocks | KnockOrganization | The organization that the door was knocked on behal
  | KnockSurveySubmissionID | The *Item* ID of the submission that was collected when the door was knocked
  | KnockFormSubmissionID | The *Item* ID of the form that was collected when the door was knocked
  | KnockSurvey | The survey that was assigned to the Volunteer to collect
+Languages | Language | A language that the profile speaks
 LegislationPositions | LegislationPositionDateTaken | When the profile took this position on the legislation
  | LegislationPosition | Which position the profile took on the legislation
  | LegislationPositionLegislation | The legislation that the profile took a position on
@@ -1376,6 +1390,7 @@ OneOnOnes | OneOnOneOrganization | The organization that held the one on one wit
  | OneOnOneCollectionLead | A poser object of the user who led the collection of this one on one, may be the same as OneOnOneUser
 PageViews | PageViewOrganization | The organization that controlled the page that was viewed by the profile
  | PageViewWhen | The datetime that the page view occurred
+ | PageViewPlatform | The technical platform the web page was viewed on
  | PageViewImage | An image associated with the page viewed
  | PageViewURL | The URL of the page view
  | PageViewPageTitle | The title of the page that was viewed
