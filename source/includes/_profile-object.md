@@ -1229,6 +1229,10 @@ null | A *Field* without a *Value*
         "id" : 1,
         "value" : "Illinois"
       },
+      "VoterRegistrationCounty" : {
+        "id" : 1,
+        "value" : "Cook"
+      },
       "VoterRegistrationVoterStatus" : {
         "id" : 1,
         "value" : "Active"
@@ -1474,4 +1478,5 @@ VoterRegistrations | Registered | A flag indicating whether or not a profile is 
  | VoterRegistrationDate | The date the voter originally registered to vote
  | VoterRegistrationParty | The political party that the profile registered under
  | VoterRegistrationRegion | The region or state the person is registered in
+ | VoterRegistrationCounty | The county the person is registered in
  | VoterRegistrationVoterStatus | The registration status of the profile
