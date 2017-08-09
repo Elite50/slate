@@ -630,7 +630,24 @@ null | A *Field* without a *Value*
   "IPAddresses" : [
     {
       "id" : 1,
-      "IPAddress" : "127.0.0.1"
+      "IPAddress" : "127.0.0.1",
+      "IPAddressCountry" : {
+        "id" : 1,
+        "value" : "USA"
+      },
+      "IPAddressRegion" : {
+        "id" : 1,
+        "value" : "District Of Columbia"
+      },
+      "IPAddressCity" : {
+        "id" : 1,
+        "value" : "Washington"
+      },
+      "IPAddressCounty" : {
+        "id" : 1,
+        "value" : "District Of Columbia"
+      },
+      "IPAddressPostalCode" : "20005"
     }
   ],
   "Issues" : [
@@ -1330,6 +1347,11 @@ Investments | InvestmentAmount | How many dollars the investment is
  | InvestmentTopic | The topic of the business that the profile is invested in
  | CurrentlyInvested | A flag indicating whether or not the profile is currently invested
 IPAddresses | IPAddress | The IP address that the profile was seen using
+ | IPAddressCountry | The country that the IP address is identified in
+ | IPAddressRegion | The region that the IP address is identified in
+ | IPAddressCity | The city that the IP address is identified in
+ | IPAddressCounty | The county that the IP address is identified in
+ | IPAddressPostalCode | The postal code that the IP address is identified in
 Issues | Issue | The issue that the profile has taken a position on
  | IssuePosition | The position that the profile took on the issue
 Knocks | KnockOrganization | The organization that the door was knocked on behalf of
