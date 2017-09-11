@@ -512,10 +512,10 @@ null | A *Field* without a *Value*
   "EmailAddresses" : [
     {
       "id" : 1,
-      "Email" : "gtown42@gmail.com",
+      "Email" : "robot@crowdskout.com",
       "EmailContact" : {
         "id" : 1,
-        "value" : "Personal"
+        "value" : "Professional"
       },
       "EmailUsable" : {
         "id" : 1,
