@@ -523,6 +523,49 @@ null | A *Field* without a *Value*
       }
     }
   ],
+  "EmailSends" : [
+    {
+      "id" : "195ff49f-6458-42e0-b58b-492469816519",
+      "EmailSendOrganization" : {
+        "id" : 1,
+        "value" : "Crowdskout"
+      },
+      "EmailSendWhen" : "2017-01-01T12:00:00+00:00",
+      "EmailSendParent" : null,
+      "EmailSendService" : {
+        "id" : "crowdskout",
+        "value" : "Crowdskout"
+      },
+      "EmailSendEmail" : "robot@crowdskout.com",
+      "EmailSendEmailing" : "Crowdskout Newsletter",
+      "EmailSendBounces" : [
+        {
+          "when" : "2017-01-01T13:00:00+00:00"
+        }
+      ],
+      "EmailSendOpens" : [
+        {
+          "when" : "2017-01-01T13:00:00+00:00"
+        }
+      ],
+      "EmailSendClicks" : [
+        {
+          "when" : "2017-01-01T13:00:00+00:00",
+          "url" : "https://crowdskout.com"
+        }
+      ],
+      "EmailSendSpamComplaints" : [
+        {
+          "when" : "2017-01-01T13:00:00+00:00"
+        }
+      ],
+      "EmailSendUnsubscribes" : [
+        {
+          "when" : "2017-01-01T13:00:00+00:00"
+        }
+      ]
+    }
+  ],
   "Ethnicities" : [
     {
       "id" : 1,
@@ -1328,6 +1371,17 @@ Educations | GraduationYear | The year the profile graduated or will graduate fr
 EmailAddresses | Email | An email address for the profile
  | EmailContact | The contact type of the email address
  | EmailUsable | Whether or not the email is usable
+EmailSends | EmailSendOrganization | The organization who sent the email
+ | EmailSendWhen | The date and time that the profile was sent the email
+ | EmailSendParent | A reference to a parent interaction for this email send
+ | EmailSendService | The service this email was sent through
+ | EmailSendEmail | The email address that the email was sent to
+ | EmailSendEmailing | The name of the general emailing this email was sent in
+ | EmailSendBounces | An array of timestamps indicating when the email bounced
+ | EmailSendOpens | An array of timestamps indicating when the email was opened
+ | EmailSendClicks | An array of timestamps and URLs indicating when a link in the email was clicked and to what URL that click led to
+ | EmailSendSpamComplaints | An array of timestamps indicating when the profile complained about the email
+ | EmailSendUnsubscribes | An array of timestamps indicating when the profile unsubscribed from this email
 Ethnicities | Ethnicity | The ethnicity of the profile
 EventAttendances | EventAttendanceOrganization | The Organization who threw the event this profile attended
  | EventAttendanceWhen | The date and time that the profile attended the event
