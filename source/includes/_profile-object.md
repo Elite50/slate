@@ -358,6 +358,15 @@ null | A *Field* without a *Value*
       }
     }
   ],
+  "DistrictStateBoardsOfEducation" : [
+    {
+      "id" : 1,
+      "StateBoardOfEducation" : {
+        "id" : 1,
+        "value" : "5"
+      }
+    }
+  ],
   "DistrictStateLowers" : [
     {
       "id" : 1,
@@ -1339,6 +1348,7 @@ DistrictRoads | DistrictRoad | The name of the road district that the profile re
 DistrictSanitations | DistrictSanitation | The name of the sanitation district that the profile resides in
 DistrictSchools | DistrictSchool | The name of the school district that the profile resides in
 DistrictSewers | DistrictSewer | The name of the sewer district that the profile resides in
+DistrictStateBoardsOfEducation | StateBoardOfEducation | The name of the state board of education district that the profile resides in
 DistrictStateLowers | DistrictStateLower | The name of the state lower district that the profile resides in
 DistrictStateUppers | DistrictStateUpper | The name of the state upper district that the profile resides in
 DistrictStatewides | DistrictStatewide | The name of the statewide district that the profile resides in
