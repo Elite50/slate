@@ -142,7 +142,73 @@ null | A *Field* without a *Value*
         "value" : "Male"
       }
     }
-  ],  
+  ],
+  "Conversations" : [
+    {
+      "id" : "fa403b72-3fd7-4f36-9caa-8a3afeec3479",
+      "ConversationOrganization" : {
+        "id" : 1,
+        "value" : "Crowdskout"
+      },
+      "ConversationWhen" : "2018-01-01T12:00:00+00:00",
+      "ConversationSender" : {
+        "id" : "operator-18485550123",
+        "externalId" : "18485550123",
+        "service" : "Operator",
+        "value" : "18485550123"
+      },
+      "ConversationReceiver" : {
+        "id" : "operator-18485553210",
+        "externalId" : "18485553210",
+        "service" : "Operator",
+        "value" : "18485553210"
+      },
+      "ConversationMedium" : {
+        "id" : "text",
+        "value" : "Text"
+      },
+      "ConversationService" : {
+        "id" : "operator",
+        "value" : "Operator"
+      },
+      "ConversationEffort" : {
+        "id" : 10,
+        "value" : "Join the Cause!"
+      },
+      "ConversationUnsubscribes" : [
+        {
+          "ConversationUnsubscribeWhen" : "2018-01-02T12:00:00+00:00"
+        }
+      ],
+      "ConversationClicks" : [
+        {
+          "ConversationClickWhen" : "2018-01-02T12:00:00+00:00"
+          "ConversationClickURL" : "https://crowdskout.com"
+        }
+      ],
+      "ConversationMessages" : [
+        "ConversationMessageWhen" : "2018-01-02T12:00:00+00:00",
+        "ConversationMessageContent" : "Come fight for your rights!",
+        "ConversationMessageSender" : {
+          "id" : "operator-18485550123",
+          "externalId" : "18485550123",
+          "service" : "Operator",
+          "value" : "18485550123"
+        },
+        "ConversationMessageReceiver" : {
+          "id" : "operator-18485553210",
+          "externalId" : "18485553210",
+          "service" : "Operator",
+          "value" : "18485553210"
+        },
+        "ConversationMessagePhoneCarrier" : "Verizon",
+        "ConversationMessageOutbound" : true,
+        "ConversationMessageReadReceipt" : true,
+        "ConversationMessageBounceNotice" : false,
+        "ConversationMessageDelivered" : true
+      ]
+    }
+  ],
   "CrowdskoutScores" : [
     {
       "id" : 1,
@@ -1322,6 +1388,28 @@ Attributes | AttributeID | The ID of the Attribute itself
 BusinessOwners | BusinessOwner | Whether or not the profile is a business owner
 Children | ChildAge | The age of the child this profile has
  | ChildGender | The gender of the child this profile has
+Conversations | ConversationOrganization | The organization who had this conversation with the profile
+ | ConversationWhen | The date and time the conversation started
+ | ConversationSender | The original sender of the first message of the conversation
+ | ConversationReceiver | The original receiver of the first message of the conversation
+ | ConversationMedium | The medium in which the conversation was had; ex: Text, Slack, etc.
+ | ConversationService | The service through which the conversation was had; ex: Operator, Hustle, Facebook, etc.
+ | ConversationEffort | The effort the conversation is apart of
+ | ConversationUnsubscribes | An array of times the profile unsubscribed during this conversation
+ | ConversationUnsubscribes .ConversationUnsubscribeWhen | The date and time the profile unsubscribed this time
+ | ConversationClicks | An array of times the profile clicked on a URL in the conversation
+ | ConversationClicks .ConversationClickWhen | The date and time the profile clicked on a URL this time
+ | ConversationClicks .ConversationClickURL | The URL the profile clicked on this time
+ | ConversationMessages | An array of messages contained in this conversation
+ | ConversationMessages .ConversationMessageWhen | The date and time this message was sent
+ | ConversationMessages .ConversationMessageContent | The content of this message
+ | ConversationMessages .ConversationMessageSender | The sender of this specific message
+ | ConversationMessages .ConversationMessageReceiver | The receiver of this specific message
+ | ConversationMessages .ConversationMessagePhoneCarrier | The phone carrier of the receiver for this message
+ | ConversationMessages .ConversationMessageOutbound | The flag indicating whether this message was sent from the organization or not
+ | ConversationMessages .ConversationMessageReadReceipt | The flag indicating whether this message was read
+ | ConversationMessages .ConversationMessageBounceNotice | The flag indicating whether this message bounced
+ | ConversationMessages .ConversationMessageDelivered | The flag indicating whether this message was delivered
 CrowdskoutScores | CrowdskoutScore | A numeric representation of the level of engagement of the profile with the client
  | CrowdskoutScoreLabel | A string representation of the level of engagement
 DeceasedRecords | DeceasedFlag | A boolean flag indicating whether or not the profile is deceased
