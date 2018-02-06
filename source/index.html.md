@@ -483,6 +483,51 @@ Parameter|Required?|Description
 ---------|---------|-----------
 profile|Yes|The [Profile Object](#the-profile-object) to check against
 
+# Segment
+
+## Scan & Scroll a Segment
+```http
+PUT /v1/segment/scan?query=(NameExists%20%3D%20%22Yes%22)&token=abcd1234 HTTP/1.1
+Accept: application/json
+Authorization: Bearer abcd1234
+Content-Type:application/json
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+	"success": true,
+	"messages": [],
+	"data": {
+		"scrollId": "abcd1234",
+		"profileIds": [1,2,3],
+		"total": 100
+	}
+}
+```
+
+`PUT https://api.crowdskout.com/v1/segment/scan?query={query}&token={token}`
+
+This endpoint works two different ways depending on whether or not a `token` parameter is provided. If the
+parameter is not provided, this endpoint starts a new scan using the provided query. If the parameter is provided,
+this endpoint will get the next collection of profiles in the initiated scroll.
+
+This endpoint should be used when you want to get every profile in a particular segment. An initial request should
+be made without providing a `token`. The response will contain the first batch of profile IDs and a `scrollId`.
+The `scrollId` should be provided in subsequent requests as the `token` parameter and another batch of profile IDs
+will be returned. This request can be made continuously until the `profileIds` array is empty. The set of
+returned profile IDs across all requests in the same scroll is guaranteed to be unique.
+
+Please note that there is a duration of sixty minutes for a scroll, and if no request is made with the token in
+sixty minutes, the scroll will be deleted. Any subsequent requests with the token will return an empty set of `profileIds`.
+
+Parameter|Required?|Description
+---------|---------|-----------
+query|yes|The CQL query that forms the segment
+token|no|The scroll ID that is used from a previous run to keep getting new profiles
+
 # Fields
 
 ## Get the Options for a Field
