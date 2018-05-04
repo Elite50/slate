@@ -140,6 +140,36 @@ Parameter|Required?|Description
 id|Yes|The profile ID we want to retrieve
 collections|Yes|A comma-delimited list of collections to include
 
+## Get a Profile by External ID
+
+```http
+GET /v1/external-id/abcd1234/Mailchimp%20ID HTTP/1.1
+Accept: application/json
+Authorization: Bearer abcd1234
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "success": true,
+  "messages": [],
+  "data": {
+    "ids": [1,2]
+  }
+}
+```
+
+`GET https://api.crowdskout.com/v1/external-id/{externalId}/{externalIdType}`
+
+You can retrieve an array of profile IDs with a specific External ID by providing the ID and a type.
+
+Parameter|Required?|Description
+---------|---------|-----------
+externalId|Yes|The value of the external ID we're looking up profile IDs for
+externalIdType|Yes|The type of the external ID we're looking up 
+
 ## Create a Profile
 
 ```http
