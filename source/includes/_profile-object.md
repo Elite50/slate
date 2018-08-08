@@ -607,6 +607,17 @@ null | A *Field* without a *Value*
       },
       "EmailSendWhen" : "2017-01-01T12:00:00+00:00",
       "EmailSendParent" : null,
+      "EmailSendContent": "Body of the email",
+      "EmailSendSubject": "Subject of the email",
+      "EmailSendReplyTo": "reply-to@crowdskout.com",
+      "EmailSendSenderEmail": "robot@crowdskout.com",
+      "EmailSendSenderName": "Crowdskout Robot",
+      "EmailSendUser": {
+        "id" : 1,
+        "service" : "crowdskout",
+        "value" : "George Yates"
+      },
+      "EmailSendDelivery": "2017-01-01T12:00:00+00:00",
       "EmailSendService" : {
         "id" : "crowdskout",
         "value" : "Crowdskout"
@@ -1472,6 +1483,13 @@ EmailAddresses | Email | An email address for the profile
 EmailSends | EmailSendOrganization | The organization who sent the email
  | EmailSendWhen | The date and time that the profile was sent the email
  | EmailSendParent | A reference to a parent interaction for this email send
+ | EmailSendContent | The full body of the email
+ | EmailSendSubject | The subject of the email
+ | EmailSendReplyTo | The reply-to email address
+ | EmailSendSenderEmail | The sender email address
+ | EmailSendSenderName | The name associated with the sender email address
+ | EmailSendUser | The Crowdskout user who sent the email
+ | EmailSendDelivery | The date and time that the email was delivered to the recipient's inbox
  | EmailSendService | The service this email was sent through
  | EmailSendEmail | The email address that the email was sent to
  | EmailSendEmailing | The name of the general emailing this email was sent in
