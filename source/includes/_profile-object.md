@@ -1057,33 +1057,6 @@ null | A *Field* without a *Value*
       ]     
     }
   ],
-  "PetitionSignatures" : [
-    {
-      "id" : "8586a40d-01be-4bb3-b01b-756ad5954ee7",
-      "PetitionSignatureOrganization" : {
-        "id" : 1,
-        "value" : "Crowdskout"
-      },
-      "PetitionSignatureWhen" : "2015-01-01T12:00:00+00",
-      "PetitionSignatureType" : {
-        "id" : "2nd-amendment",
-        "value" : "2nd Amendment"
-      },
-      "PetitionSignatureLocationType" : {
-        "id" : "event",
-        "value" : "Event"
-      },
-      "PetitionSignatureLocation" : "Coronation of King Manuel",
-      "PetitionSignatureCollectionLead" : {
-        "id" : 1,
-        "value" : "King Manuel"
-      },
-      "PetitionSignatureCollector" : {
-        "id" : 2,
-        "value" : "Ferdinand Magellan"
-      }      
-    }
-  ],
   "PhoneCalls" : [
     {
       "id" : "360045ee-a5d0-477e-9b5a-1d545a66c848",
@@ -1597,13 +1570,6 @@ PageViews | PageViewOrganization | The organization that controlled the page tha
  | PageViewUTMContents | An array of UTM contents as indicated by UTM tags on the URL
  | PageViewUTMCampaigns | An array of UTM campaigns as indicated by UTM tags on the URL
  | PageViewUTMTerms | An array of UTM terms as indicated by UTM tags on the URL
-PetitionSignatures | PetitionSignatureOrganization | The organization that collected the petition signature
- | PetitionSignatureWhen | The datetime that the petition was signed
- | PetitionSignatureType | The type of petition that was signed
- | PetitionSignatureLocationType | The type of location where the petition was signed
- | PetitionSignatureLocation | The name of the location or event where the petition was signed
- | PetitionSignatureCollectionLead | A poser object representing the individual who led the collection of this petition signature
- | PetitionSignatureCollector | The actual person who collected the signature, may be the same as PetitionSignatureCollectionLead
 PhoneCalls | PhoneCallOrganization | The organization that the phone call was placed on behalf of
  | PhoneCallWhen | The datetime that the phone call was placed
  | PhoneCallPhoneCalling | The name of the phone call campaign that the call was placed under
