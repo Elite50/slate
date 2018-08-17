@@ -1488,6 +1488,10 @@ EmailSends | EmailSendOrganization | The organization who sent the email
  | EmailSendClicks | An array of timestamps and URLs indicating when a link in the email was clicked and to what URL that click led to
  | EmailSendSpamComplaints | An array of timestamps indicating when the profile complained about the email
  | EmailSendUnsubscribes | An array of timestamps indicating when the profile unsubscribed from this email
+IndependentUnsubscribes | IndependentUnsubscribeOrganization | The organization of the user unsubscribing
+ | IndependentUnsubscribeWhen | The date and time that the independent unsubscription happened
+ | IndependentUnsubscribeEmail | The email that unsubscribed 
+ | IndependentUnsubscribeList | The list in the external service that the profile unsubscribed from
 Ethnicities | Ethnicity | The ethnicity of the profile
 EventAttendances | EventAttendanceOrganization | The Organization who threw the event this profile attended
  | EventAttendanceWhen | The date and time that the profile attended the event
