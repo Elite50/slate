@@ -652,6 +652,23 @@ null | A *Field* without a *Value*
       ]
     }
   ],
+  "Independent Unsubscribes" : [
+    {
+      "id" : "abcabc",
+      "IndependentUnsubscribeOrganization" : {
+        "id" : 1,
+        "value" : "Modern Notion"
+      },
+      "IndependentUnsubscribeWhen" : "2014-01-01T12:00:00.000Z",
+      "IndependentUnsubscribeEmail" : "shawn@crowdskout.com",
+      "IndependentUnsubscribeList" : {
+        "id" : "mailchimp1",
+        "externalId" : 1,
+        "service" : "mailchimp",
+        "value" : "Unsubscribe list name"
+      },
+    }
+  ],
   "Ethnicities" : [
     {
       "id" : 1,
