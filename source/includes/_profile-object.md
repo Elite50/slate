@@ -1097,7 +1097,11 @@ null | A *Field* without a *Value*
         "id" : 1,
         "value" : "Personal"
       },
-      "PhoneUsable" : {
+      "PhoneNumberCallUsable" : {
+        "id" : 1,
+        "value" : "Usable"
+      },
+      "PhoneNumberTextUsable" : {
         "id" : 1,
         "value" : "Usable"
       }
@@ -1581,8 +1585,9 @@ PhoneCalls | PhoneCallOrganization | The organization that the phone call was pl
 PhoneNumbers | PhoneNumber | The phone number for the profile
  | PhoneType | The type of phone that the number reaches
  | PhoneContact | The contact type of the phone number
- | PhoneUsable | The usability of the phone number to reach the profile
-PhoneAddresses | Address1 | The first line of the address where the profile lives
+ | PhoneNumberCallUsable | The usability of the phone number to reach the profile with a phone call
+ | PhoneNumberTextUsable | The usability of the phone number to reach the profile with a text message
+PhysicalAddresses | Address1 | The first line of the address where the profile lives
  | Address2 | The second line of the address
  | Address3 | The third line of the address
  | AddressCity | The city where the profile lives
