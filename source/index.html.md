@@ -752,6 +752,7 @@ Content-Type: application/json
 {
   "name" : "Ready to set sail",
   "type" : "Radio",
+  "locked" : false,
   "options" : [
     {
       "value" : "Yes"
@@ -797,6 +798,7 @@ Parameter|Required?|Description
 ---------|---------|-----------
 name|Yes|The name of the attribute we're creating
 type|Yes|The type of attribute we're creating, must be one of: `Radio`, `Checkbox`, `Text`, `Number`, `Tag`, `Date`, `Datetime`
+locked|No|A boolean on whether or not to create a locked attribute that the user and subsequent API calls cannot modify - defaults to `false`
 options|Sometimes|An array of options for the attribute, required if the supplied type is `Radio` or `Checkbox`
 
 ## Update an Attribute
