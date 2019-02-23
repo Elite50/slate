@@ -65,7 +65,7 @@ null | A *Field* without a *Value*
       "AttributeName" : "Ice Cream Lover",
       "AttributeType" : "Text",
       "AttributeValue" : "Yes"
-    },  
+    },
     {
       "id" : 1,
       "AttributeId" : 1,
@@ -225,7 +225,7 @@ null | A *Field* without a *Value*
       },
       "DateOfDeath": "2016-01-01"
     }
-  ],  
+  ],
   "DistrictCensusBlockGroups" : [
     {
       "id" : 1,
@@ -243,7 +243,7 @@ null | A *Field* without a *Value*
         "value" : "5"
       }
     }
-  ],  
+  ],
   "DistrictCities" : [
     {
       "id" : 1,
@@ -261,7 +261,7 @@ null | A *Field* without a *Value*
         "value" : "5"
       }
     }
-  ],  
+  ],
   "DistrictCitywides" : [
     {
       "id" : 1,
@@ -495,7 +495,7 @@ null | A *Field* without a *Value*
         "value" : "5"
       }
     }
-  ],  
+  ],
   "DistrictWaters" : [
     {
       "id" : 1,
@@ -683,7 +683,7 @@ null | A *Field* without a *Value*
       },
       "EventAttendanceEventName": "Kamp Crowdskout"
     }
-  ],  
+  ],
   "ExternalIDs" : [
     {
       "id" : 1,
@@ -863,7 +863,7 @@ null | A *Field* without a *Value*
       "LegislationPositionLegislationDistrict" : {
         "id" : 1,
         "value" : "Illinois"
-      },      
+      },
       "LegislationPositionGovernmentBodies" : [
         {
           "id" : 1,
@@ -1054,7 +1054,27 @@ null | A *Field* without a *Value*
       "PageViewUTMTerms": [
         "testTerm",
         "testTerm2"
-      ]     
+      ]
+    }
+  ],
+  "PaymentCards" : [
+    {
+      "id" : 1,
+      "CardProcessor" : {
+        "id" : 1,
+        "value" : "Stripe"
+      },
+      "CardFunding" : {
+        "id" : 1,
+        "value" : "Credit"
+      },
+      "CardLastFour" : 1234,
+      "CardExpiration" : "2019-02",
+      "CardIssuer" : {
+        "id" : 1,
+        "value" : "Visa"
+      },
+      "CardFingerprint" : "card_TgjFRIqFh445ui"
     }
   ],
   "PhoneCalls" : [
@@ -1574,6 +1594,12 @@ PageViews | PageViewOrganization | The organization that controlled the page tha
  | PageViewUTMContents | An array of UTM contents as indicated by UTM tags on the URL
  | PageViewUTMCampaigns | An array of UTM campaigns as indicated by UTM tags on the URL
  | PageViewUTMTerms | An array of UTM terms as indicated by UTM tags on the URL
+PaymentCards | CardProcessor | An object containing the card processor, ex: Stripe
+ | CardFunding | An object containing what the funding of card it is, ex: Credit
+ | CardLastFour | The last four digits of the payment card
+ | CardExpiration | A month and year date of the card's expiration
+ | CardIssuer | An object containing the issuer of the card, ex: Visa
+ | CardFingerprint | A string provided by the payment card processor that uniquely identifies the card
 PhoneCalls | PhoneCallOrganization | The organization that the phone call was placed on behalf of
  | PhoneCallWhen | The datetime that the phone call was placed
  | PhoneCallPhoneCalling | The name of the phone call campaign that the call was placed under
