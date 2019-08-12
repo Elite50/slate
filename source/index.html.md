@@ -140,6 +140,33 @@ Parameter|Required?|Description
 id|Yes|The profile ID we want to retrieve
 collections|Yes|A comma-delimited list of collections to include
 
+This endpoint supports sorting, filtering and limiting of the results.
+
+### Sorting
+To sort the results inside a collection, provide `{collectionName}_sort` as a parameter, and `{+/-}{collectionField}` as a value.
+\+ for ASC, \- for DESC. You can provide more than one collection field to use for secondary sorting.
+
+If -/+ is not provided, the sorting will default to + and sort in ascending order on the given field.
+
+For example:
+`Knocks_sort=-KnockWhen,+KnockDayTrip_value` will sort knocks results from most recent to the oldest, and will also sort according to ascending order of KnockDayTrip values.
+
+### Filtering
+To filter the results inside a collection, provide `{collectionName}_{collectionField}_{collectionSubField}` as a parameter, and the value you filter on as the value of the parameter.
+
+For example: 
+`Knocks_KnockDayTrip_id=wills-day-trip` will only return knocks where KnockDayTrip id is 'wills-day-trip'.
+
+
+### Limiting
+To limit the results inside a collection, provide `{collectionName}_limit` as a parameter and an integer as a value.
+
+For example:
+`Knocks_limit=1` will only return one first knock. 
+
+You can use it in combination with sorting, for example, `Knocks_sort=-KnockWhen&Knocks_limit=1` will return the most recent knock.
+
+
 ## Get a Profile by External ID
 
 ```http
