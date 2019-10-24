@@ -913,6 +913,10 @@ null | A *Field* without a *Value*
         "id" : 1,
         "value" : "NRA"
       },
+      "MemberParentOrganization" : {
+        "id" : 2,
+        "value" : "E Corp"
+      },
       "MemberActive" : {
         "id" : "no",
         "value" : "No"
@@ -1548,6 +1552,7 @@ Meetings | MeetingWhen | The date and time the meeting occurred
  | MeetingLocation | The location of the meeting
  | MeetingNotes | General text notes of the meeting
 Memberships | MemberOrganization | The organization that the profile has a membership to
+ | MemberParentOrganization | The parent organization of the membership
  | MemberActive | A flag indicating whether the profile is an active member of the organization
  | MemberTitle | The title of the membership level of the profile
  | MemberJoined | The date that the profile joined the organization
