@@ -1534,6 +1534,17 @@ EventAttendances | EventAttendanceOrganization | The Organization who threw the 
  | EventAttendanceType | The type of event attended
  | EventAttendanceCollector | The user who collected this event attendance record
  | EventAttendanceEventName | The name of the event attended
+EventRegistrations | EventRegistrationOrganization | The Organization who threw the event this profile attended
+ | EventRegistrationWhen | The date and time that the profile registered for the event
+ | EventRegistrationParent | A reference to a parent interaction for this event registration, such as an page view
+ | EventRegistrationType | The type of event registered
+ | EventRegistrationEvent | The name of the event registered
+ | EventDate | The date of the event
+ | EventDescription | The description of the event 
+ | EventURL | The URL of the event
+ | EventTicketName | The ticket name of the event
+ | EventDiscountCode | The discount code of the event
+ | EventRegistrationExternalID | The external id of the event registered
 ExternalIDs | ExternalID | The value of the external ID
  | ExternalIDType | The type of the external ID
 Genders | Gender | The gender of the profile
