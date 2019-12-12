@@ -708,7 +708,7 @@ null | A *Field* without a *Value*
       "EventDescription" : "A day of joyous celebration",
       "EventURL" : "http://crowdskout.com",
       "EventTicketName" : "VIP",
-      "EventDiscountCode" : "20OFF"
+      "EventDiscountCode" : "20OFF",
       "EventRegistrationExternalID" : {
            "externalId": 5,
            "service": "salesforce",
