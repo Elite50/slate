@@ -684,6 +684,38 @@ null | A *Field* without a *Value*
       "EventAttendanceEventName": "Kamp Crowdskout"
     }
   ],
+  "EventRegistrations" : [
+    {
+      "id" : "c83c4d8c-b0f7-44b8-ad4b-f0df740e99e1",
+      "EventRegistrationOrganization" : {
+          "id" : 1,
+          "value" : "Crowdskout"
+      },
+      "EventRegistrationWhen" : "2016-01-01T12:00:00Z",
+      "EventRegistrationParent" : {
+          "id" : "c7fe325d-7360-4e49-aa0e-7848dffb534b",
+          "collection" : "PageViews"
+      },
+      "EventRegistrationEvent" : {
+          "id" : "new-years-eve",
+          "value" : "New Years Eve"
+      },
+      "EventRegistrationEventType" : {
+          "id" : "fundraiser",
+          "value" : "Fundraiser"
+      },
+      "EventDate" : "2014-12-30T12:00:00.000Z",
+      "EventDescription" : "A day of joyous celebration",
+      "EventURL" : "http://crowdskout.com",
+      "EventTicketName" : "VIP",
+      "EventDiscountCode" : "20OFF"
+      "EventRegistrationExternalID" : {
+           "externalId": 5,
+           "service": "salesforce",
+           "value": "abcd1234"
+      },
+    }
+  ],
   "ExternalIDs" : [
     {
       "id" : 1,
