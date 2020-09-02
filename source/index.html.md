@@ -140,6 +140,33 @@ Parameter|Required?|Description
 id|Yes|The profile ID we want to retrieve
 collections|Yes|A comma-delimited list of collections to include
 
+This endpoint supports sorting, filtering and limiting of the results.
+
+### Sorting
+To sort the results inside a collection, provide `{collectionName}_sort` as a parameter, and `{+/-}{collectionField}` as a value.
+\+ for ASC, \- for DESC. You can provide more than one collection field to use for secondary sorting.
+
+If -/+ is not provided, the sorting will default to + and sort in ascending order on the given field.
+
+For example:
+`Knocks_sort=-KnockWhen,+KnockDayTrip_value` will sort knocks results from most recent to the oldest, and will also sort according to ascending order of KnockDayTrip values.
+
+### Filtering
+To filter the results inside a collection, provide `{collectionName}_{collectionField}_{collectionSubField}` as a parameter, and the value you filter on as the value of the parameter.
+
+For example: 
+`Knocks_KnockDayTrip_id=wills-day-trip` will only return knocks where KnockDayTrip id is 'wills-day-trip'.
+
+
+### Limiting
+To limit the results inside a collection, provide `{collectionName}_limit` as a parameter and an integer as a value.
+
+For example:
+`Knocks_limit=1` will only return one first knock. 
+
+You can use it in combination with sorting, for example, `Knocks_sort=-KnockWhen&Knocks_limit=1` will return the most recent knock.
+
+
 ## Get a Profile by External ID
 
 ```http
@@ -558,7 +585,123 @@ Parameter|Required?|Description
 query|yes|The CQL query that forms the segment
 token|no|The scroll ID that is used from a previous run to keep getting new profiles
 
-# Fields
+# Traits
+
+## Get audience breakdown by traits
+
+```http
+POST /v1/traits HTTP/1.1
+Accept: application/json
+Authorization: Bearer abcd1234
+Content-Type: application/json
+
+{
+	"query": "(Gender = \"Female\")",
+	"profiles": [
+		1,
+		2,
+		3
+	],
+	"traits": [
+		{
+			"trait": "City",
+			"value": "Silver Spring",
+			"dependencies": {
+				"State": "Maryland"
+			},
+			"options": {
+				"startDateTime": "2015-08-14T08:00:00-05:00",
+				"endDateTime": "2015-08-15T08:00:00-05:00",
+				"timeseries": {
+					"interval": "day",
+					"timezoneOffset": -5,
+					"dayOfWeekOffset": 0
+				},
+				"sum": true,
+				"ranges": [
+					[10, "*"],
+					[11, 21]
+				],
+				"drillDown": true,
+				"unknown": true,
+				"profileCount": true
+			},
+			"dimensions": [
+				{
+					"trait": "Gender"
+				}
+			]
+		}
+	]
+}
+```
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+	"success": true,
+	"messages": [],
+	"data": {
+		"total": 554,
+		"data": {
+			"2016-02-01T00:00:00-05:00": {
+				"total": 139,
+				"options": {
+					"Debrief": "",
+					"Escalation": "",
+					"Introduction": "",
+					"Maintenance": ""
+				}
+			}
+		}
+	}
+}
+```
+
+`POST https://api.crowdskout.com/v1/traits`
+
+This endpoint takes a wide variety of options in the request body, most of which are optional.
+
+Property|Required?|Description
+---------|---------|-----------
+query|no|A CQL string to filter the results by
+profiles|no|A list of profile IDs to filter the results by
+traits|yes|An array of `trait` objects
+
+`trait` object definition:
+
+Property|Required?|Description
+---------|---------|-----------
+trait|yes|Any criterion or criterion filter, optional when inside dimensions and value or dependencies is specified
+value|no|Value to filter by (can be combined with dimensions), can also specify "getStaticOptions" under value to tell server to fetch static results
+dependencies|no|An object of dependency to value mappings, the dependencies must relate to the trait
+options|no|An `options` object
+dimensions|no|An array of recursive `trait` objects
+
+`options` object definition:
+
+Property|Required?|Description
+---------|---------|-----------
+startDateTime|no|Start date ISO8601 string
+endDateTime|no|End date ISO8601 string
+timeseries|no|A `timeseries` object
+sum|no|Boolean, whether to sum up a numeric field, must be on the deepest dimension (or root)
+ranges|no|An array of number ranges for numeric fields, can use `*` for unbounded ranges
+drillDown|no|Boolean, prevents reverse nesting on dimension traits
+unknown|no|Boolean, requires profileCount provides a count of all profiles that have no record for the given trait
+profileCount|no|Boolean, reverse nests to get a count of profiles instead of documents/interactions
+
+`timeseries` object definition:
+
+Property|Required?|Description
+---------|---------|-----------
+interval|yes|One of "day", "hour", "week", "month", or "year"
+timezoneOffset|yes|Number
+dayOfWeekOffset|no|Number
+
+#Fields
 
 ## Get the Options for a Field
 
@@ -752,6 +895,7 @@ Content-Type: application/json
 {
   "name" : "Ready to set sail",
   "type" : "Radio",
+  "locked" : false,
   "options" : [
     {
       "value" : "Yes"
@@ -797,6 +941,7 @@ Parameter|Required?|Description
 ---------|---------|-----------
 name|Yes|The name of the attribute we're creating
 type|Yes|The type of attribute we're creating, must be one of: `Radio`, `Checkbox`, `Text`, `Number`, `Tag`, `Date`, `Datetime`
+locked|No|A boolean on whether or not to create a locked attribute that the user and subsequent API calls cannot modify - defaults to `false`
 options|Sometimes|An array of options for the attribute, required if the supplied type is `Radio` or `Checkbox`
 
 ## Update an Attribute

@@ -65,7 +65,7 @@ null | A *Field* without a *Value*
       "AttributeName" : "Ice Cream Lover",
       "AttributeType" : "Text",
       "AttributeValue" : "Yes"
-    },  
+    },
     {
       "id" : 1,
       "AttributeId" : 1,
@@ -225,7 +225,7 @@ null | A *Field* without a *Value*
       },
       "DateOfDeath": "2016-01-01"
     }
-  ],  
+  ],
   "DistrictCensusBlockGroups" : [
     {
       "id" : 1,
@@ -243,7 +243,7 @@ null | A *Field* without a *Value*
         "value" : "5"
       }
     }
-  ],  
+  ],
   "DistrictCities" : [
     {
       "id" : 1,
@@ -261,7 +261,7 @@ null | A *Field* without a *Value*
         "value" : "5"
       }
     }
-  ],  
+  ],
   "DistrictCitywides" : [
     {
       "id" : 1,
@@ -495,7 +495,7 @@ null | A *Field* without a *Value*
         "value" : "5"
       }
     }
-  ],  
+  ],
   "DistrictWaters" : [
     {
       "id" : 1,
@@ -700,7 +700,39 @@ null | A *Field* without a *Value*
       },
       "EventAttendanceEventName": "Kamp Crowdskout"
     }
-  ],  
+  ],
+  "EventRegistrations" : [
+    {
+      "id" : "c83c4d8c-b0f7-44b8-ad4b-f0df740e99e1",
+      "EventRegistrationOrganization" : {
+          "id" : 1,
+          "value" : "Crowdskout"
+      },
+      "EventRegistrationWhen" : "2016-01-01T12:00:00Z",
+      "EventRegistrationParent" : {
+          "id" : "c7fe325d-7360-4e49-aa0e-7848dffb534b",
+          "collection" : "PageViews"
+      },
+      "EventRegistrationEvent" : {
+          "id" : "new-years-eve",
+          "value" : "New Years Eve"
+      },
+      "EventRegistrationEventType" : {
+          "id" : "fundraiser",
+          "value" : "Fundraiser"
+      },
+      "EventDate" : "2014-12-30T12:00:00.000Z",
+      "EventDescription" : "A day of joyous celebration",
+      "EventURL" : "http://crowdskout.com",
+      "EventTicketName" : "VIP",
+      "EventDiscountCode" : "20OFF",
+      "EventRegistrationExternalID" : {
+           "externalId": 5,
+           "service": "salesforce",
+           "value": "abcd1234"
+      },
+    }
+  ],
   "ExternalIDs" : [
     {
       "id" : 1,
@@ -880,7 +912,7 @@ null | A *Field* without a *Value*
       "LegislationPositionLegislationDistrict" : {
         "id" : 1,
         "value" : "Illinois"
-      },      
+      },
       "LegislationPositionGovernmentBodies" : [
         {
           "id" : 1,
@@ -1071,7 +1103,27 @@ null | A *Field* without a *Value*
       "PageViewUTMTerms": [
         "testTerm",
         "testTerm2"
-      ]     
+      ]
+    }
+  ],
+  "PaymentCards" : [
+    {
+      "id" : 1,
+      "CardProcessor" : {
+        "id" : 1,
+        "value" : "Stripe"
+      },
+      "CardFunding" : {
+        "id" : 1,
+        "value" : "Credit"
+      },
+      "CardLastFour" : 1234,
+      "CardExpiration" : "2019-02",
+      "CardIssuer" : {
+        "id" : 1,
+        "value" : "Visa"
+      },
+      "CardFingerprint" : "card_TgjFRIqFh445ui"
     }
   ],
   "PhoneCalls" : [
@@ -1114,7 +1166,11 @@ null | A *Field* without a *Value*
         "id" : 1,
         "value" : "Personal"
       },
-      "PhoneUsable" : {
+      "PhoneNumberCallUsable" : {
+        "id" : 1,
+        "value" : "Usable"
+      },
+      "PhoneNumberTextUsable" : {
         "id" : 1,
         "value" : "Usable"
       }
@@ -1374,6 +1430,46 @@ null | A *Field* without a *Value*
         "value" : "Active"
       }
     }
+  ],
+  "VoterRegistrationInteractions" : [
+    {
+      "id" : "398de1a7-e234-4a4c-b10c-86f2b2bd351e",
+      "VoterRegistrationInteractionOrganization" : {
+        "id" : 1,
+        "value" : "Crowdskout"
+      },
+      "VoterRegistrationInteractionWhen" : "2014-05-25T12:00:00.000Z",
+      "VoterRegistrationInteractionParty" : {
+        "id" : 1,
+        "value" : "Democrat"
+      },
+      "VoterRegistrationInteractionType" : {
+        "id" : "change-of-address",
+        "value" : "Change of Address"
+      },
+      "VoterRegistrationInteractionPetitionType" : {
+        "id" : "epa",
+        "value" : "EPA"
+      },
+      "VoterRegistrationInteractionLocation" : "Voter Registration Drive",
+      "VoterRegistrationInteractionLocationType" : {
+        "id" : "event",
+        "value" : "Event"
+      },
+      "VoterRegistrationInteractionTurnedIn" : "2015-01-01",
+      "VoterRegistrationInteractionLead": {
+        "id" : 1,
+        "value" : "Jane Doe"
+      },
+      "VoterRegistrationInteractionNonStafferCollector" : {
+        "id" : "john-doe",
+        "value" : "John Doe"
+      },
+      "VoterRegistrationInteractionRole" : {
+        "id" : "volunteer",
+        "value" : "Volunteer"
+      }
+    }
   ]
 }
 ```
@@ -1499,6 +1595,17 @@ EventAttendances | EventAttendanceOrganization | The Organization who threw the 
  | EventAttendanceType | The type of event attended
  | EventAttendanceCollector | The user who collected this event attendance record
  | EventAttendanceEventName | The name of the event attended
+EventRegistrations | EventRegistrationOrganization | The Organization who threw the event this profile attended
+ | EventRegistrationWhen | The date and time that the profile registered for the event
+ | EventRegistrationParent | A reference to a parent interaction for this event registration, such as an page view
+ | EventRegistrationType | The type of event registered
+ | EventRegistrationEvent | The name of the event registered
+ | EventDate | The date of the event
+ | EventDescription | The description of the event
+ | EventURL | The URL of the event
+ | EventTicketName | The ticket name of the event
+ | EventDiscountCode | The discount code of the event
+ | EventRegistrationExternalID | The external id of the event registered
 ExternalIDs | ExternalID | The value of the external ID
  | ExternalIDType | The type of the external ID
 Genders | Gender | The gender of the profile
@@ -1591,6 +1698,12 @@ PageViews | PageViewOrganization | The organization that controlled the page tha
  | PageViewUTMContents | An array of UTM contents as indicated by UTM tags on the URL
  | PageViewUTMCampaigns | An array of UTM campaigns as indicated by UTM tags on the URL
  | PageViewUTMTerms | An array of UTM terms as indicated by UTM tags on the URL
+PaymentCards | CardProcessor | An object containing the card processor, ex: Stripe
+ | CardFunding | An object containing what the funding of card it is, ex: Credit
+ | CardLastFour | The last four digits of the payment card
+ | CardExpiration | A month and year date of the card's expiration
+ | CardIssuer | An object containing the issuer of the card, ex: Visa
+ | CardFingerprint | A string provided by the payment card processor that uniquely identifies the card
 PhoneCalls | PhoneCallOrganization | The organization that the phone call was placed on behalf of
  | PhoneCallWhen | The datetime that the phone call was placed
  | PhoneCallPhoneCalling | The name of the phone call campaign that the call was placed under
@@ -1602,8 +1715,9 @@ PhoneCalls | PhoneCallOrganization | The organization that the phone call was pl
 PhoneNumbers | PhoneNumber | The phone number for the profile
  | PhoneType | The type of phone that the number reaches
  | PhoneContact | The contact type of the phone number
- | PhoneUsable | The usability of the phone number to reach the profile
-PhoneAddresses | Address1 | The first line of the address where the profile lives
+ | PhoneNumberCallUsable | The usability of the phone number to reach the profile with a phone call
+ | PhoneNumberTextUsable | The usability of the phone number to reach the profile with a text message
+PhysicalAddresses | Address1 | The first line of the address where the profile lives
  | Address2 | The second line of the address
  | Address3 | The third line of the address
  | AddressCity | The city where the profile lives
@@ -1659,3 +1773,14 @@ VoterRegistrations | Registered | A flag indicating whether or not a profile is 
  | VoterRegistrationRegion | The region or state the person is registered in
  | VoterRegistrationCounty | The county the person is registered in
  | VoterRegistrationVoterStatus | The registration status of the profile
+VoterRegistrationInteractions | VoterRegistrationInteractionOrganization | The organization that helped register the profile
+ | VoterRegistrationInteractionWhen | The date and time of registration
+ | VoterRegistrationInteractionParty | The political party that the profile registered under
+ | VoterRegistrationInteractionType | The type of registration, ex: New Voter, Change of Address, Party Change, Other Record Update
+ | VoterRegistrationInteractionPetitionType | The type of petition, ex: Taxes, Veterans
+ | VoterRegistrationInteractionLocation | The location or event name of the registration
+ | VoterRegistrationInteractionLocationType | The type of location of the registration, ex: Event, Community Organization
+ | VoterRegistrationInteractionTurnedIn | The date and time the registration was turned in
+ | VoterRegistrationInteractionLead | The person who led the registration occurrence
+ | VoterRegistrationInteractionNonStafferCollector | The person who collected the registration
+ | VoterRegistrationInteractionRole | The role/title of the collector, ex: Volunteer
