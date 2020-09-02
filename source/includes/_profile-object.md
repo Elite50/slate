@@ -1413,6 +1413,46 @@ null | A *Field* without a *Value*
         "value" : "Active"
       }
     }
+  ],
+  "VoterRegistrationInteractions" : [
+    {
+      "id" : "398de1a7-e234-4a4c-b10c-86f2b2bd351e",
+      "VoterRegistrationInteractionOrganization" : {
+        "id" : 1,
+        "value" : "Crowdskout"
+      },
+      "VoterRegistrationInteractionWhen" : "2014-05-25T12:00:00.000Z",
+      "VoterRegistrationInteractionParty" : {
+        "id" : 1,
+        "value" : "Democrat"
+      },
+      "VoterRegistrationInteractionType" : {
+        "id" : "change-of-address",
+        "value" : "Change of Address"
+      },
+      "VoterRegistrationInteractionPetitionType" : {
+        "id" : "epa",
+        "value" : "EPA"
+      },
+      "VoterRegistrationInteractionLocation" : "Voter Registration Drive",
+      "VoterRegistrationInteractionLocationType" : {
+        "id" : "event",
+        "value" : "Event"
+      },
+      "VoterRegistrationInteractionTurnedIn" : "2015-01-01",
+      "VoterRegistrationInteractionLead": {
+        "id" : 1,
+        "value" : "Jane Doe"
+      },
+      "VoterRegistrationInteractionNonStafferCollector" : {
+        "id" : "john-doe",
+        "value" : "John Doe"
+      },
+      "VoterRegistrationInteractionRole" : {
+        "id" : "volunteer",
+        "value" : "Volunteer"
+      }
+    }
   ]
 }
 ```
@@ -1540,7 +1580,7 @@ EventRegistrations | EventRegistrationOrganization | The Organization who threw 
  | EventRegistrationType | The type of event registered
  | EventRegistrationEvent | The name of the event registered
  | EventDate | The date of the event
- | EventDescription | The description of the event 
+ | EventDescription | The description of the event
  | EventURL | The URL of the event
  | EventTicketName | The ticket name of the event
  | EventDiscountCode | The discount code of the event
@@ -1712,3 +1752,14 @@ VoterRegistrations | Registered | A flag indicating whether or not a profile is 
  | VoterRegistrationRegion | The region or state the person is registered in
  | VoterRegistrationCounty | The county the person is registered in
  | VoterRegistrationVoterStatus | The registration status of the profile
+VoterRegistrationInteractions | VoterRegistrationInteractionOrganization | The organization that helped register the profile
+ | VoterRegistrationInteractionWhen | The date and time of registration
+ | VoterRegistrationInteractionParty | The political party that the profile registered under
+ | VoterRegistrationInteractionType | The type of registration, ex: New Voter, Change of Address, Party Change, Other Record Update
+ | VoterRegistrationInteractionPetitionType | The type of petition, ex: Taxes, Veterans
+ | VoterRegistrationInteractionLocation | The location or event name of the registration
+ | VoterRegistrationInteractionLocationType | The type of location of the registration, ex: Event, Community Organization
+ | VoterRegistrationInteractionTurnedIn | The date and time the registration was turned in
+ | VoterRegistrationInteractionLead | The person who led the registration occurrence
+ | VoterRegistrationInteractionNonStafferCollector | The person who collected the registration
+ | VoterRegistrationInteractionRole | The role/title of the collector, ex: Volunteer
